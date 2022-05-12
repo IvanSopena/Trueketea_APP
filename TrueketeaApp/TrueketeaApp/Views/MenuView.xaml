@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="menu"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls" 
+             x:Class="TrueketeaApp.Views.MenuView"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout>
+                <AbsoluteLayout x:Name="top"
+				 AbsoluteLayout.LayoutBounds="0,0,412,229">
+                    <BoxView x:Name="rect_ngulo_1633"
+					    Color="{DynamicResource Trueketea}"
+					    AbsoluteLayout.LayoutBounds="0,0,412,229" />
+
+                    <AbsoluteLayout x:Name="userinfo" AbsoluteLayout.LayoutBounds="59,61,277,90">
+
+                        <AbsoluteLayout AbsoluteLayout.LayoutBounds="20,0,85,90">
+                            <Frame CornerRadius="{OnPlatform Android='100',iOS='35'}" 
+                                       HorizontalOptions="Center"
+                                       Padding="0"
+                                       IsClippedToBounds="True">
+                                <Image x:Name="elipse_421"
+                                      HeightRequest="70"
+                                       WidthRequest="70"
+						           Source="{Binding UserPhoto}"/>
+                            </Frame>
+                        </AbsoluteLayout>
+
+
+                        <Label x:Name="manish_chutake"
+						    FontFamily="PoppinsBold"
+						    FontSize="20"
+						    TextColor="#ffffff"
+						    AbsoluteLayout.LayoutBounds="100,6,280,34"
+						    Text="{Binding UserName}"/>
+                        <Label x:Name="manishuxuid_gmail_com"
+						    FontFamily="PoppinsBold"
+						    FontSize="12"
+						    TextColor="#ffffff"
+						    AbsoluteLayout.LayoutBounds="100,35,165,25"
+						    Text="{Binding USerEmail}"/>
+
+
+                        <AbsoluteLayout x:Name="grupo_9229" AbsoluteLayout.LayoutBounds="100,58,118.60205078125,19.44580078125">
+
+                            <Image x:Name="icon_awesome_star"
+							Source="{Binding Star1}"
+							AbsoluteLayout.LayoutBounds="-1,-1,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek1"
+							Source="{Binding Star2}"
+							AbsoluteLayout.LayoutBounds="24,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek2"
+							Source="{Binding Star3}"
+							AbsoluteLayout.LayoutBounds="49,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek3"
+							Source="{Binding Star4}"
+							AbsoluteLayout.LayoutBounds="74,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek4"
+							Source="{Binding Star5}"
+							AbsoluteLayout.LayoutBounds="99,0,19.63,20.47" />
+
+                        </AbsoluteLayout>
+
+                    </AbsoluteLayout>
+
+                </AbsoluteLayout>
+
+                <ScrollView  AbsoluteLayout.LayoutBounds="0.5,253,412,443">
+                    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, *" RowSpacing="0">
+
+                        <controls:TapAnimationGrid
+                                            Grid.Row="1"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                            Command="{Binding BindingContext.TruequesCommand, Source={x:Reference menu}}"
+                                            HeightRequest="48">
+
+
+                            <Label
+                                            
+                                            HorizontalOptions="Start"
+                                            Style="{StaticResource IconLabelStyle}"
+                                            Text="{StaticResource Trueques}"
+                                            FontFamily="FA"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+                            <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Mis Trueques"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                            <buttons:SfButton
+                                            Command="{Binding BindingContext.TruequesCommand, Source={x:Reference menu}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                        </controls:TapAnimationGrid>
+                        
+                        <BoxView Grid.Row="2" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                        <controls:TapAnimationGrid
+                                            Grid.Row="3"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                            Command="{Binding BindingContext.ProfileCommand, Source={x:Reference menu}}"
+                                            HeightRequest="48">
+
+
+                            <Label
+                                            
+                                            HorizontalOptions="Start"
+                                            Style="{StaticResource IconLabelStyle}"
+                                            Text="{StaticResource Profile}"
+                                            FontFamily="FA"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+                            <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Mi Perfil"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                            <buttons:SfButton
+                                            Command="{Binding BindingContext.ProfileCommand, Source={x:Reference menu}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                        </controls:TapAnimationGrid>
+
+                        <BoxView Grid.Row="4" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                        <controls:TapAnimationGrid
+                                            Grid.Row="5"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                            Command="{Binding BindingContext.ReportIncidentCommand, Source={x:Reference menu}}"
+                                            HeightRequest="48">
+
+
+                            <Label
+                                            
+                                            HorizontalOptions="Start"
+                                            Style="{StaticResource IconLabelStyle}"
+                                            Text="{StaticResource Bug}"
+                                            FontFamily="FA"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+                            <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Reportar Incidencia"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                            <buttons:SfButton
+                                            Command="{Binding BindingContext.ReportIncidentCommand, Source={x:Reference menu}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                        </controls:TapAnimationGrid>
+
+                        <BoxView Grid.Row="6" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                        <controls:TapAnimationGrid
+                                            Grid.Row="7"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                            Command="{Binding BindingContext.InfoCommand, Source={x:Reference menu}}"
+                                            HeightRequest="48">
+
+
+                            <Label
+                                            
+                                            HorizontalOptions="Start"
+                                            Style="{StaticResource IconLabelStyle}"
+                                            Text="{StaticResource About}"
+                                            FontFamily="FA"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+                            <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Acerca de Trueketea"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                            <buttons:SfButton
+                                            Command="{Binding BindingContext.InfoCommand, Source={x:Reference menu}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                        </controls:TapAnimationGrid>
+
+                   
+                        <BoxView Grid.Row="8" Style="{StaticResource HorizontalSeparatorStyle}" />
+                        <controls:TapAnimationGrid
+                                            Grid.Row="9"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                            Command="{Binding BindingContext.CloseCommand, Source={x:Reference menu}}"
+                                            HeightRequest="48">
+
+
+                            <Label
+                                            
+                                            HorizontalOptions="Start"
+                                            Style="{StaticResource IconLabelStyle}"
+                                            Text="{StaticResource Exit}"
+                                            FontFamily="FA"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+                            <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Cerrar Sesión"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                            <buttons:SfButton
+                                            Command="{Binding BindingContext.CloseCommand, Source={x:Reference menu}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                        </controls:TapAnimationGrid>
+                     
+                        <BoxView
+                                        Grid.Row="9"
+                                        Style="{StaticResource HorizontalSeparatorStyle}"
+                                        VerticalOptions="End" />
+
+                    </Grid>
+                </ScrollView>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

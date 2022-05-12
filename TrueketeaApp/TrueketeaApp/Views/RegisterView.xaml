@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TrueketeaApp.MyControls"
+             xmlns:styles="clr-namespace:TrueketeaApp.Styles"
+             x:Class="TrueketeaApp.Views.RegisterView"
+             
+             NavigationPage.HasNavigationBar="False">
+
+
+    <!--<ContentPage.Resources>
+        <styles:Colors  />
+    </ContentPage.Resources>-->
+    
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <AbsoluteLayout x:Name="content"
+                                     Grid.Row="1" Grid.Column="0"
+                            
+                            HorizontalOptions="CenterAndExpand"
+					>
+
+                    <Label x:Name="crearte_tu_cuenta"
+							FontFamily="PoppinsBold"
+							FontAttributes="Bold"
+							FontSize="33"
+							TextColor="{DynamicResource Trueketea}"
+							AbsoluteLayout.LayoutBounds="60,-4,325,70.5"
+							Text="Créate tu Cuenta"
+						 />
+                    <Image x:Name="__img_container_1"
+							Source="__img_container_1.png"
+							AbsoluteLayout.LayoutBounds="10,32,398,402" />
+
+                    <local:ImageEntry 
+                            x:Name="User"
+                            TextColor="Black" 
+                        FontFamily="PoppinsLight"
+                            PlaceholderColor="Black" 
+                            Image="user" 
+                            Placeholder="App User" 
+                            Keyboard="Text"
+                            IsPassword="False"
+                            AbsoluteLayout.LayoutBounds="50,55,290,60"
+                            HorizontalOptions="FillAndExpand"/>
+                    <local:ImageEntry 
+                            x:Name="Password" 
+                        FontFamily="PoppinsLight"
+                            TextColor="Black" 
+                            PlaceholderColor="Black" 
+                            Image="key" 
+                            Placeholder="Contraseña" 
+                            Keyboard="Text"
+                            IsPassword="True"
+                            AbsoluteLayout.LayoutBounds="50,170,290,60"
+                            HorizontalOptions="FillAndExpand"/>
+
+                    <local:ImageEntry 
+                            x:Name="Mail"
+                        FontFamily="PoppinsLight"
+                            TextColor="Black" 
+                            PlaceholderColor="Black" 
+                            Image="mail" 
+                            Placeholder="Email" 
+                            Keyboard="Email"
+                            AbsoluteLayout.LayoutBounds="50,110,290,60"
+                            HorizontalOptions="FillAndExpand"/>
+
+                    <StackLayout AbsoluteLayout.LayoutBounds="50,240,290,60" >
+
+                        <local:ImageEntry 
+                            x:Name="VerifyPassword" 
+                            FontFamily="PoppinsLight"
+                            TextColor="Black" 
+                            PlaceholderColor="Black" 
+                            Image="key" 
+                            Placeholder="Verifica la Contraseña" 
+                            Keyboard="Text"
+                            IsPassword="True"
+                            HorizontalOptions="FillAndExpand"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                   IsVisible="{Binding IsVisbleMail}"
+                                   TextColor="{DynamicResource Red}"
+                                   Text="{DynamicResource Error}"/>
+                            <Label
+                                 x:Name="ErrValidation"   
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Error}"
+                                IsVisible="{Binding IsVisbleMail}"
+                                TextColor="{DynamicResource Red}"
+                                 />
+
+                        </StackLayout>
+                        <!--<Label
+                                    x:Name="ErrValidation"
+                            FontFamily="PoppinsLight"
+                                    Margin="15,-3,0,0"
+                                    Text="{Binding Error}"
+                                    IsVisible="{Binding IsVisbleMail}"
+                                    TextColor="{DynamicResource Red}"
+                                    VerticalOptions="FillAndExpand" />-->
+
+                       
+
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="70,325,290,60">
+
+                        <CheckBox x:Name="checkBox" 
+                                      IsChecked="false"/>
+
+                        <Button x:Name="__olvidaste_tu_contrase_a_"
+					                    FontFamily="PoppinsLight"
+                                        Margin="{OnPlatform Android='15,-45',iOS='-10,-45'}"
+					                    FontSize="14"
+                                        Command="{Binding Terms}"
+                                        BackgroundColor="{DynamicResource Transparent}"
+					                    TextColor="{DynamicResource GradientStartColor}"
+					                    Text="Acepto las condiciones de uso." />
+                    </StackLayout>
+
+                    <Button Text="Registrar"
+                            BorderColor="{DynamicResource Trueketea}"
+                            BackgroundColor="{DynamicResource Trueketea}"
+                            FontFamily="PoppinsLight"
+							FontSize="20"
+                            TextColor="{DynamicResource TextColor}"
+                            CornerRadius="30"
+                            Command="{Binding RegisterCommand}"
+                            AbsoluteLayout.LayoutBounds="90,385,229,50"
+                            BorderWidth="2"/>
+
+
+                    <!--<Label x:Name="or"
+							FontFamily="Poppins"
+							FontSize="13"
+							TextColor="#787c81"
+							AbsoluteLayout.LayoutBounds="200,460,29,27.5"
+							Text="OR"
+						 />
+                    <Image x:Name="l_nea_1"
+							Source="l_nea_1.png"
+							AbsoluteLayout.LayoutBounds="50,470,121,1" />
+                    <Image x:Name="l_nea_2"
+							Source="l_nea_2.png"
+							AbsoluteLayout.LayoutBounds="240,470,121,1" />-->
+                </AbsoluteLayout>
+
+                <!--<AbsoluteLayout x:Name="butons"
+					 Grid.Row="2" Grid.Column="0"
+                            HorizontalOptions="CenterAndExpand"
+					 >
+                    <Image x:Name="__img_facebutton"
+						Source="__img_btnface.png"
+						AbsoluteLayout.LayoutBounds="10,-21,362,110.16" />
+                    <Image x:Name="__img_googlebutton"
+						Source="__img_btngoogle.png"
+						AbsoluteLayout.LayoutBounds="10,48,362,108.82" />
+                </AbsoluteLayout>-->
+
+
+                <AbsoluteLayout
+                    Grid.Row="2" Grid.Column="0"
+                            HorizontalOptions="CenterAndExpand">
+                    
+                    <Image x:Name="__img_pic"
+				            Source="__img_pic.png"
+				 />
+                </AbsoluteLayout>
+
+                <ActivityIndicator 
+                Color="{DynamicResource Trueketea}"
+                IsRunning="{Binding IsBusy}"
+                 HorizontalOptions="Center" 
+                VerticalOptions="Center"/>
+
+            </Grid>
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>
+    

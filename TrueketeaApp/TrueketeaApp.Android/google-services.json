@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "365832877438",
+    "project_id": "trueketea-bd250",
+    "storage_bucket": "trueketea-bd250.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365832877438:android:64ef66eb6cfe317b75af2f",
+        "android_client_info": {
+          "package_name": "com.IS13.trueketeaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365832877438-alm26mi5gfnma7vf56epeva5iu5h3gds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUUq6-RrEZ5asHs6xtErnsvE9wgVvoz5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365832877438-alm26mi5gfnma7vf56epeva5iu5h3gds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365832877438:android:184afc08f107554275af2f",
+        "android_client_info": {
+          "package_name": "com.companyname.trueketeaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365832877438-alm26mi5gfnma7vf56epeva5iu5h3gds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUUq6-RrEZ5asHs6xtErnsvE9wgVvoz5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365832877438-alm26mi5gfnma7vf56epeva5iu5h3gds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

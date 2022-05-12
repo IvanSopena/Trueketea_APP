@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrueketeaApp.Views.BienvenidaView"
+             xmlns:viewModel="clr-namespace:TrueketeaApp.ViewModels"
+             NavigationPage.HasNavigationBar="False">
+    
+   <ContentPage.BindingContext>
+        <viewModel:BienvenidaViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <AbsoluteLayout x:Name="cabecera"
+                            
+					Grid.Row="1" Grid.Column="0"
+					HorizontalOptions="CenterAndExpand">
+
+                    <Image x:Name="__img_grupo_9200"
+					Source="__img_grupo_9200.png"
+					AbsoluteLayout.LayoutBounds="5.11,47.23,401.79,380.3"
+					/>
+
+
+                    <Label x:Name="busca__compara_y_cambia"
+					FontFamily="PoppinsBold"
+					FontAttributes="Bold"
+					FontSize="27"
+					TextColor="#0bbf2f"
+					AbsoluteLayout.LayoutBounds="19.5,366.76635742188,392,55.5"
+					Text="Busca, Compara y Cambia"
+					/>
+
+                    <Label 
+						FontFamily="PoppinsLight"
+						FontSize="16"
+						TextColor="#707070"
+						AbsoluteLayout.LayoutBounds="20,464,386,184"
+						Text="Trueketea es mas que una aplicación, es una red social de amigos con los que intercambiar esos productos que ya no te sirven o buscar productos que necesitas gratis. ¡Anímate! entra y pruébalo."
+					 />
+
+                    <ImageButton x:Name="btnentrar"
+					Source="__img_rect_ngulo_3.png"
+					Command="{Binding SingInCommand}"
+					AbsoluteLayout.LayoutBounds="59,644,307,53"
+                                 />
+
+                    <Label x:Name="entrar"
+						FontFamily="PoppinsMedium"
+						FontSize="20"
+						TextColor="#ffffff"
+						AbsoluteLayout.LayoutBounds="186,657,75,42"
+						Text="Entrar"
+					 />
+
+                    <ImageButton x:Name="btnRegister"
+					Source="__img_rect_ngulo_2.png"
+                    Command="{Binding SingUpCommand}"
+					AbsoluteLayout.LayoutBounds="59,710,307,53"
+				/>
+
+
+                    <Label x:Name="crear_cuenta"
+					FontFamily="PoppinsMedium"
+					FontSize="20"
+					TextColor="#ffffff"
+					AbsoluteLayout.LayoutBounds="155,723,152,42"
+					Text="Crear Cuenta"
+				 />
+
+                </AbsoluteLayout>
+
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+</ContentPage>

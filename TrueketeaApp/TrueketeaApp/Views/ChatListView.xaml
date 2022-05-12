@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Chat"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:controls="clr-namespace:TrueketeaApp.MyControls"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:template="clr-namespace:TrueketeaApp.Views.Templates" xmlns:behaviors="clr-namespace:TrueketeaApp.Behaviors"
+    ios:Page.UseSafeArea="true"
+    x:Class="TrueketeaApp.Views.ChatListView">
+
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <controls:TitleView Title="Mis Conversaciones" FontFamily="RalewayBold" FontSize="18" BackgroundColor="{DynamicResource Trueketea}"/>
+
+            <StackLayout
+                x:Name="TitleBar"
+                Padding="8"
+                BackgroundColor="{StaticResource Transparent}"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                Spacing="0">
+
+                <StackLayout
+                    x:Name="ProfileView"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="True"
+                    Orientation="Horizontal"
+                    Spacing="0"
+                    VerticalOptions="FillAndExpand">
+
+                    <!--  Rounded Profile Image  -->
+                    <border:SfBorder BackgroundColor="{DynamicResource Gray-200}" Style="{StaticResource ProfileBorderStyle}">
+                        <Image HeightRequest="32" WidthRequest="32">
+                            <Image.Source>
+                                <UriImageSource
+                                    CacheValidity="14"
+                                    CachingEnabled="true"
+                                    Uri="{Binding ProfileImage}" />
+                            </Image.Source>
+                        </Image>
+                    </border:SfBorder>
+
+                    <!--  Recent Chat page Title  -->
+                    <Label
+                        Margin="16,0"
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="{Binding ProfileName}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="SearchBox"
+                    HorizontalOptions="EndAndExpand"
+                    IsVisible="False"
+                    Orientation="Horizontal"
+                    Spacing="0">
+
+                    <buttons:SfButton
+                        x:Name="BackButton"
+                        Style="{StaticResource IconButtonStyle}"
+                        Text="{StaticResource Back}">
+                        <buttons:SfButton.Behaviors>
+                            <behaviors:SearchBarAnimationBehavior AnimationType="shrink" />
+                        </buttons:SfButton.Behaviors>
+                    </buttons:SfButton>
+
+                    <!--  Rounded Search Entry  -->
+                    <border:SfBorder
+                        BorderColor="{DynamicResource Gray-Bg}"
+                        CornerRadius="10"
+                        Style="{DynamicResource ThemeBorderStyle}">
+
+                        <controls:BorderlessEntry
+                            x:Name="SearchEntry"
+                            BindingContext="{x:Reference ListView}"
+                            HorizontalOptions="FillAndExpand"
+                            Placeholder="Busca un contacto"
+                            Style="{StaticResource BorderlessEntryStyle}"
+                            Text="{Binding SearchText, Mode=TwoWay}" />
+                        
+
+                    </border:SfBorder>
+                </StackLayout>
+
+                <!--  Search Button  -->
+                <buttons:SfButton
+                    x:Name="SearchButton"
+                    BindingContext="{x:Reference ProfileView}"
+                    IsVisible="{Binding Path=IsVisible}"
+                    Style="{StaticResource IconButtonStyle}"
+                    Text="{StaticResource Search}">
+                    <buttons:SfButton.Behaviors>
+                        <behaviors:SearchBarAnimationBehavior AnimationType="expand" />
+                    </buttons:SfButton.Behaviors>
+                </buttons:SfButton>
+
+               
+            </StackLayout>
+            
+            
+            <BoxView BackgroundColor="{DynamicResource Gray-200}" HeightRequest="1" />
+
+            <controls:SearchableChatList
+                x:Name="ListView"
+                AllowSwiping="True"
+                AutoFitMode="Height"
+                FocusBorderThickness="0"
+                ItemsSource="{Binding Contacts}"
+                SearchText="{Binding SearchText}"
+              
+                SwipeOffset="156"
+                TapCommand="{Binding ItemSelectedCommand}"
+                VerticalOptions="FillAndExpand">
+
+                <controls:SearchableChatList.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <template:ChatTemplate />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SearchableChatList.ItemTemplate>
+
+                
+
+            </controls:SearchableChatList>
+            
+             
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

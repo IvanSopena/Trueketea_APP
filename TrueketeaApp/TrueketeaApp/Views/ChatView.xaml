@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              NavigationPage.HasNavigationBar="False"
+              xmlns:local="clr-namespace:TrueketeaApp.MyControls"
+             x:Class="TrueketeaApp.Views.ChatView">
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout x:Name="top"
+				 AbsoluteLayout.LayoutBounds="0,0,412,127"
+				 >
+
+                <AbsoluteLayout x:Name="background_ek3"
+					 AbsoluteLayout.LayoutBounds="0,0,412,127"
+					 >
+
+
+                    <AbsoluteLayout x:Name="background_shadow"
+						 AbsoluteLayout.LayoutBounds="0,0,412,127"
+						 >
+
+                        <BoxView x:Name="background_ek4"
+							Color="#0bbf2f"
+							AbsoluteLayout.LayoutBounds="0,0,412,127" />
+                    </AbsoluteLayout>
+
+                    <BoxView x:Name="line"
+						Color="#f3f4f9"
+						AbsoluteLayout.LayoutBounds="0,126,412,1" />
+                </AbsoluteLayout>
+
+
+                <AbsoluteLayout x:Name="profile"
+					 AbsoluteLayout.LayoutBounds="100,35,171,59"
+					 >
+
+
+                    <AbsoluteLayout x:Name="photo_ek3"
+						 AbsoluteLayout.LayoutBounds="0,0,61,59"
+						 >
+
+                        <Image x:Name="photo_ek4"
+							Source="photo_ek4.png"
+							AbsoluteLayout.LayoutBounds="-12,-8,82,83" />
+                        <Image
+							
+								Source="img_connect"
+                                AbsoluteLayout.LayoutBounds="48,5,16,16"/>
+                        
+                    </AbsoluteLayout>
+
+                    <Label x:Name="blair_dota"
+						FontFamily="RalewayBold"
+						FontSize="20"
+						TextColor="#ffffff"
+						AbsoluteLayout.LayoutBounds="77,8,109,38"
+						Text="Blair Dota"
+					 />
+
+                    <AbsoluteLayout x:Name="online_2"
+						 AbsoluteLayout.LayoutBounds="77,33,51,20"
+						 >
+
+                        <Label x:Name="online"
+							FontFamily="RalewayRegular"
+							FontSize="17"
+							TextColor="#ffffff"
+							AbsoluteLayout.LayoutBounds="0,0,65,31.5"
+							Text="Online"
+						 />
+                    </AbsoluteLayout>
+
+                </AbsoluteLayout>
+
+
+                <AbsoluteLayout x:Name="icon_ek3"
+					 AbsoluteLayout.LayoutBounds="5,35,9.5,14"
+					 >
+                    <Button
+                            Text="{DynamicResource Return}"
+                            TextColor="{DynamicResource TextColor}"
+                            FontSize="20"
+							Command="{Binding ReturnCommand}"
+                            FontFamily="FA"
+                            HeightRequest="50"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            WidthRequest="50"
+                            BackgroundColor="{DynamicResource Transparent}"/>   
+                    
+                </AbsoluteLayout>
+
+            </AbsoluteLayout>
+            <ScrollView VerticalScrollBarVisibility="Never" VerticalOptions="Start">
+                <AbsoluteLayout x:Name="content" AbsoluteLayout.LayoutBounds="25,154,325,573">
+                    <AbsoluteLayout x:Name="message_4"
+					 AbsoluteLayout.LayoutBounds="95,288,230.19213867188,285"
+					 >
+
+                        <Label x:Name="_8_13__"
+						FontFamily="Fira Sans"
+						HorizontalTextAlignment="Right"
+						FontSize="10"
+						TextColor="#63697b"
+						AbsoluteLayout.LayoutBounds="198,267,35,21"
+						Text="8:13  "
+					 />
+
+                        <AbsoluteLayout x:Name="bullet"
+						 AbsoluteLayout.LayoutBounds="0,197,230.04174804688,65.99951171875"
+						 >
+
+                            <Image x:Name="bullet_ek1"
+							Source="bullet_ek1.png"
+							AbsoluteLayout.LayoutBounds="0,0,230.04,66" />
+                            <Label x:Name="by_the_way__did_not"
+							FontFamily="Fira Sans"
+							FontSize="12"
+							TextColor="#ffffff"
+							AbsoluteLayout.LayoutBounds="15,15,201,44"
+							Text="By the way, did not you see my dog! I present to you Sheldon! "
+						 />
+                        </AbsoluteLayout>
+
+                        <Image x:Name="image"
+						Source="image.png"
+						AbsoluteLayout.LayoutBounds="0,0,220,190" />
+                    </AbsoluteLayout>
+                </AbsoluteLayout>
+            </ScrollView>
+            <AbsoluteLayout x:Name="bottom"
+				 AbsoluteLayout.LayoutBounds="0,781,412,89"
+				 >
+
+
+                <AbsoluteLayout x:Name="background"
+					 AbsoluteLayout.LayoutBounds="0,0,412,89"
+					 >
+
+                    <BoxView x:Name="background_ek1"
+						
+						Color="#ffffff"
+						AbsoluteLayout.LayoutBounds="0,4,412,89" />
+                </AbsoluteLayout>
+
+
+                <AbsoluteLayout x:Name="content_ek1"
+					 AbsoluteLayout.LayoutBounds="36,31,362,22.013671875"
+					 >
+
+
+                    <AbsoluteLayout x:Name="text"
+						 AbsoluteLayout.LayoutBounds="0,0,173.40539550781,22.013671875"
+						 >
+
+                       
+                        <local:BorderlessEntry 
+												AbsoluteLayout.LayoutBounds="69,-20,256,70"
+												FontFamily="RalewayRegular"
+												FontSize="14"
+												FontAttributes="Bold"
+												VerticalOptions="Center"
+												TextColor="{DynamicResource TextBar}"
+												Placeholder="Escribe aqui"/>
+
+
+                        <AbsoluteLayout x:Name="icon_ek2"
+							 AbsoluteLayout.LayoutBounds="10,5,21.405639648438,21.99951171875"
+							 >
+
+                            <Image x:Name="emojis"
+								Source="emojis.png"
+								AbsoluteLayout.LayoutBounds="0,0,21.41,22" />
+                        </AbsoluteLayout>
+
+                    </AbsoluteLayout>
+
+                    <Image x:Name="send"
+						Source="send.png"
+						AbsoluteLayout.LayoutBounds="315,5,23,22" />
+                </AbsoluteLayout>
+
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

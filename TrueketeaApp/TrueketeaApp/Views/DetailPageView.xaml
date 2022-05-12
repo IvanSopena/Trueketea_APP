@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls" 
+            xmlns:toolbar="clr-namespace:TrueketeaApp.Views.customviews"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+              ios:Page.UseSafeArea="true"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.DetailPageView">
+    
+    <ContentPage.Content>
+
+        <StackLayout >
+           
+                <toolbar:ToolBar
+                             
+                            BackButtonIsVisible="true"
+                             ToolBarTextSize="15"
+                             ButtonTextSize="15"
+                             ShareButtonIsVisible="False"
+                             OptionsButtonIsVisible="False"
+                             ToolBarTitle="Detalle del Producto"/>
+
+            <!--<controls:TitleView Title="Detalle del Producto" FontFamily="RalewayBold" FontSize="18" BackgroundColor="{DynamicResource Trueketea}">
+                <controls:TitleView.LeadingView>
+                    <buttons:SfButton
+                                x:Name="backButton"
+                                TextColor="{DynamicResource TextColor}"
+                                Command="{Binding BindingContext.BackButtonCommand, Source={x:Reference Trueques}}"
+                                CommandParameter="{x:Reference backButton}"
+                                Style="{StaticResource IconButtonStyleFA}"
+                                Text="{StaticResource Return}" />
+                </controls:TitleView.LeadingView>
+            </controls:TitleView>-->
+
+
+           
+
+            <ScrollView Margin="0,-10">
+                <AbsoluteLayout >
+
+                    <CollectionView HorizontalScrollBarVisibility="Never"
+                                        VerticalOptions="Start"
+                                        Margin="0,-15"
+                                        ItemsSource="{Binding popularFashion}"
+                                        ItemsLayout="HorizontalList"
+                                        HeightRequest="350">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <AbsoluteLayout >
+                                    
+                                    <Image Source="{Binding image}" WidthRequest="450" HeightRequest="350" Aspect="AspectFill" VerticalOptions="Start" />
+                                    
+                                    <AbsoluteLayout x:Name="totales" AbsoluteLayout.LayoutBounds="200,280,18,5">
+
+                                        <BoxView  
+						                    Color="{Binding color1}"
+                                            IsVisible="{Binding visible1}"
+						                    AbsoluteLayout.LayoutBounds="0,0,10,10" />
+
+                                        <BoxView 
+						                    Color="{Binding color2}"
+                                            IsVisible="{Binding visible2}"
+						                    AbsoluteLayout.LayoutBounds="13,0,10,10" />
+
+                                        <BoxView 
+						                    Color="{Binding color3}"
+                                            IsVisible="{Binding visible3}"
+						                    AbsoluteLayout.LayoutBounds="26,0,10,10" />
+
+                                        <BoxView 
+						                    Color="{Binding color4}"
+                                            IsVisible="{Binding visible4}"
+						                    AbsoluteLayout.LayoutBounds="39,0,10,10" />
+                                    </AbsoluteLayout>
+                                </AbsoluteLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    
+
+
+                    <BoxView x:Name="rect_ngulo_41"
+				        CornerRadius="71"
+				        Color="#ffffff"
+				        AbsoluteLayout.LayoutBounds="-6,297,423,869" />
+
+
+                    <AbsoluteLayout x:Name="voucher"
+				             AbsoluteLayout.LayoutBounds="186.5,0,218.38500976562,92.000732421875">
+
+                        <ImageButton
+                                AbsoluteLayout.LayoutBounds="120,-30,50,100"
+                                BackgroundColor="{DynamicResource Transparent}"
+                                Source="compartir"
+                                WidthRequest="30"
+                                IsVisible="true"
+                                Command="{Binding Share_command}"
+                                HeightRequest="30"
+                                VerticalOptions="Center"/>
+
+                        <ImageButton
+                                AbsoluteLayout.LayoutBounds="150,-30,50,100"
+                                BackgroundColor="{DynamicResource Transparent}"
+                                Source="options"
+                                WidthRequest="30"
+                                Command="{Binding ShowOPtions_command}"
+                                HeightRequest="30"
+                                VerticalOptions="Center"
+                                IsVisible="true" />     
+
+                        <Image x:Name="combined_shape"
+					            Source="combined_shape.png"
+                                 IsVisible="{Binding IsVisibleOptions}"
+					            AbsoluteLayout.LayoutBounds="0,35,218.39,92" />
+                        <Button x:Name="rolex_discount"
+					            FontFamily="RalewayMedium"
+                                Command="{Binding ReportProduct_command}"
+					            FontSize="14"
+                                IsVisible="{Binding IsVisibleOptions}"
+                                BackgroundColor="{DynamicResource Transparent}"
+					            TextColor="#272833"
+					            AbsoluteLayout.LayoutBounds="4,35,189,41"
+					            Text="Denunciar Producto"/>
+                        <Button x:Name="rolex_discount_ek1"
+					            FontFamily="RalewayMedium"
+					            FontSize="14"
+                                Command="{Binding ReportUser_command}"
+                                BackgroundColor="{DynamicResource Transparent}"
+                                IsVisible="{Binding IsVisibleOptions}"
+					            TextColor="#272833"
+					            AbsoluteLayout.LayoutBounds="4,75,189,41"
+					            Text="Denunciar Vendedor"/>
+
+
+                       
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout x:Name="ProductNameInfo" AbsoluteLayout.LayoutBounds="9,330,700,86">
+                        <Label x:Name="tasado_en__50_"
+                               
+						                FontFamily="RalewayBold"
+						                HorizontalTextAlignment="Center"
+						                FontSize="30"
+						                TextColor="{DynamicResource TextBar}"
+						                AbsoluteLayout.LayoutBounds="-5,-15,225,56"
+						                Text="{Binding Precio}"/>
+                        <Label x:Name="nombre_del_producto"
+						           FontFamily="RalewayBold"
+						           HorizontalTextAlignment="Start"
+						           FontSize="18"
+						           TextColor="{DynamicResource TextBar}"
+						           AbsoluteLayout.LayoutBounds="5,30,300,34"
+						           Text="{Binding NombreProducto}"/>
+                        <Label x:Name="estado"
+						            FontFamily="RalewayMedium"
+						            HorizontalTextAlignment="Center"
+						            FontSize="16"
+						            TextColor="{DynamicResource TextBar}"
+						            AbsoluteLayout.LayoutBounds="4,60,150,26"
+						            Text="{Binding Estado}"/>
+
+                        <Button
+                                    WidthRequest="80"
+                                    HeightRequest="80"
+                                    Text="{StaticResource Likes}"
+                                    Command="{Binding Fav_command}"
+                                    FontFamily="FA"
+                                    TextColor="{DynamicResource TextColor}"
+                                    CornerRadius="{OnPlatform Android='40',iOS='20'}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                   AbsoluteLayout.LayoutBounds="285,5,40,40"
+                                    BackgroundColor="{DynamicResource FacebookBlue}"/>
+
+                        <AbsoluteLayout x:Name="grupo_930" AbsoluteLayout.LayoutBounds="294,3,76,40">
+
+
+                            <AbsoluteLayout x:Name="grupo_929" AbsoluteLayout.LayoutBounds="48,4,28,34">
+
+                                <Label x:Name="likes"
+							            FontFamily="RalewayRegular"
+							            HorizontalTextAlignment="Center"
+							            FontSize="14"
+							            TextColor="#bbbbbb"
+							            AbsoluteLayout.LayoutBounds="-10,20,50,22"
+							            Text="Likes"/>
+
+                                <Label x:Name="_137k"
+							            FontFamily="RalewayRegular"
+							            HorizontalTextAlignment="Center"
+							            FontSize="16"
+							            TextColor="#242a37"
+							            AbsoluteLayout.LayoutBounds="-2,0,33,26"
+							            Text="{Binding Likes}"/>
+                            </AbsoluteLayout>
+
+
+
+                        </AbsoluteLayout>
+
+                        <Image 
+					               Source="lin1.png"
+					               AbsoluteLayout.LayoutBounds="0,90,400.25,3" />
+
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout x:Name="UserPart" AbsoluteLayout.LayoutBounds="21,430,365,52">
+
+                        <AbsoluteLayout x:Name="UserData" AbsoluteLayout.LayoutBounds="0,0,169,52">
+
+                            <StackLayout AbsoluteLayout.LayoutBounds="0,0,53,52">
+                                <Frame CornerRadius="{OnPlatform Android='100',iOS='25'}" 
+                                       HorizontalOptions="Center"
+                                       Padding="0"
+                                       IsClippedToBounds="True">
+                                    <ImageButton Source="{Binding Photo}" 
+                                           Command="{Binding ViewUser_command}"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                            </StackLayout>
+
+                            <Label 
+							        FontFamily="RalewayBold"
+							        FontSize="16"
+							        TextColor="#030303"
+							        AbsoluteLayout.LayoutBounds="64,17,130,60"
+							        Text="{Binding User_Name}"/>
+                        </AbsoluteLayout>
+
+                        <AbsoluteLayout x:Name="grupo_9209" AbsoluteLayout.LayoutBounds="285,6,91,40" >
+
+                            <Label x:Name="ratings"
+							FontFamily="RalewayRegular"
+							HorizontalTextAlignment="Center"
+							FontSize="14"
+							TextColor="#bbbbbb"
+							AbsoluteLayout.LayoutBounds="35,23,47,22"
+							Text="Ratings" />
+
+                            <Label x:Name="_4_5"
+							FontFamily="RalewayRegular"
+							HorizontalTextAlignment="Center"
+							FontSize="16"
+							TextColor="#242a37"
+							AbsoluteLayout.LayoutBounds="48,4,23,26"
+							Text="{Binding Votos}" />
+
+                            <Button
+                                    WidthRequest      ="80"
+                                    HeightRequest     ="80"
+                                    Text="{StaticResource Star}"
+                                    FontFamily="FA"
+                                    TextColor="{DynamicResource TextColor}"
+                                    CornerRadius="{OnPlatform Android='40',iOS='20'}"
+                                    Command="{Binding Vote_command}"
+                                    VerticalOptions   ="Center"
+                                    HorizontalOptions ="Center"
+                                    AbsoluteLayout.LayoutBounds="-10,0,40,40"
+                                    BackgroundColor   ="{DynamicResource Gold}"/>
+
+
+                        </AbsoluteLayout>
+
+                        <Image 
+					               Source="lin1.png"
+					               AbsoluteLayout.LayoutBounds="-15,60,400.25,3" />
+
+
+                    </AbsoluteLayout>
+
+
+                    <AbsoluteLayout  AbsoluteLayout.LayoutBounds="170,510,83,21"
+					 >
+
+                        <AbsoluteLayout AbsoluteLayout.LayoutBounds="53,10,83,21">
+
+                            <BoxView  CornerRadius="9" 
+                                     Color="{DynamicResource Trueketea}" 
+                                     AbsoluteLayout.LayoutBounds="0,0,150,21" />
+                            <Label 
+						            FontFamily="RalewayRegular"
+						            HorizontalTextAlignment="Center"
+						            FontSize="15"
+						            TextColor="#ffffff"
+						            AbsoluteLayout.LayoutBounds="{OnPlatform Android='9,-3,65,26',iOS='9,1,65,26'}"
+						            Text="{Binding Categoria}" />
+                        </AbsoluteLayout>
+
+                        <AbsoluteLayout x:Name="grupo_924" AbsoluteLayout.LayoutBounds="-133,10,83,21">
+
+                            <BoxView  CornerRadius="9" Color="{DynamicResource Link}" 
+                                     AbsoluteLayout.LayoutBounds="0,0,160,21" />
+                            <Label 
+						            FontFamily="RalewayRegular"
+						            HorizontalTextAlignment="Center"
+						            FontSize="14"
+						            TextColor="#ffffff"
+						            AbsoluteLayout.LayoutBounds="{OnPlatform Android='-15,-3,190,26',iOS='-15,1,190,26'}"
+						            Text="{Binding EstadoActual}" />
+                        </AbsoluteLayout>
+                        <Image 
+					          Source="lin1.png"
+					          AbsoluteLayout.LayoutBounds="-160,60,400.25,3" />
+                    </AbsoluteLayout>
+
+
+
+
+                    <AbsoluteLayout  AbsoluteLayout.LayoutBounds="38,600,327,86">
+
+
+
+                        <Label 
+						    FontFamily="RalewayRegular"
+						    HorizontalTextAlignment="Center"
+						    FontSize="16"
+						    TextColor="{DynamicResource TextBar}"
+						    AbsoluteLayout.LayoutBounds="-3,0,277,230"
+						    Text="{Binding Descripcion}"/>
+
+
+
+                        <Image 
+					          Source="lin1.png"
+					          AbsoluteLayout.LayoutBounds="-30,160,400.25,3" />
+
+                    </AbsoluteLayout>
+
+
+                    <AbsoluteLayout x:Name="Mapa" AbsoluteLayout.LayoutBounds="38,880,327,86">
+
+                        <maps:Map  x:Name="LocationProduct"
+                            AbsoluteLayout.LayoutBounds="{OnPlatform Android='-15,-107,370,260',iOS='-3,-90,350,230'}" 
+                            IsShowingUser="True"
+                            
+                            MapType ="Street">
+                            
+                        </maps:Map>
+
+                        <Image 
+					          Source="lin1.png"
+					          AbsoluteLayout.LayoutBounds="-20,160,400.25,3" />
+
+
+                    </AbsoluteLayout>
+
+                    <ImageButton
+                            BackgroundColor="{DynamicResource Transparent}"
+				            Source="detailbutton.png"
+                            Command="{Binding Chat_command}"
+				            AbsoluteLayout.LayoutBounds="26,1090,360,52" />
+
+
+
+                </AbsoluteLayout>
+            </ScrollView>
+        </StackLayout>
+
+
+
+    </ContentPage.Content>
+</ContentPage>

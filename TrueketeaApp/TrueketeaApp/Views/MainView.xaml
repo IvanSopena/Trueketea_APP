@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:TrueketeaApp.MyControls"
+			 xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+			 xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+			 x:Class="TrueketeaApp.Views.MainView">
+    <ContentPage.Content>
+
+        <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto" >
+            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="20,20,20,0"/>
+                        <On Platform="iOS" Value="20,60,20,0"/>
+                    </OnPlatform>
+                </StackLayout.Padding>
+                <Frame CornerRadius="18" BackgroundColor="{DynamicResource SearchColor}" Padding="20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+									HorizontalOptions="Start"
+									VerticalOptions="Center"
+									FontFamily="FA"
+									TextColor="{DynamicResource TextBar}"
+									Text="{StaticResource Search01}"
+                                    FontSize="16" />
+
+                        <local:BorderlessEntry 
+												Grid.Column="1"
+												VerticalOptions="Center"
+                                                Text="{Binding FilterText}"
+												TextColor="{DynamicResource TextBar}"
+												Placeholder="Busca tu producto"
+												HorizontalOptions="FillAndExpand"/>
+                        <Button
+                                    FontSize="20"
+                                    FontFamily="UI"
+                                    TextColor="{DynamicResource TextBar}"
+                                    VerticalOptions="End"
+                                    BackgroundColor="{DynamicResource Transparent}"
+                                    Grid.Column="2"
+                                    Text="{DynamicResource Filter}"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="20,0">
+                <Label x:Name="messages"
+								FontFamily="RalewayBold"
+								FontSize="20"
+								TextColor="{DynamicResource TextBar}"
+								Text="Productos disponibles para tí"
+							 />
+                <Label x:Name="you_have_2_new_messa"
+								FontFamily="RalewayRegular"
+								Opacity="0.3"
+								FontSize="14"
+								TextColor="{DynamicResource TextBar}"
+								Text="Puedes seleccionar la categora para afinar la bsqueda"
+							 />
+
+
+
+            </StackLayout>
+            
+            <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" >
+                <ScrollView  Margin="{OnPlatform Android='10,47,0,-630',iOS='10,47,0,-820'}" HorizontalOptions="FillAndExpand" >
+                    <CollectionView
+                                                            x:Name="listGroups"
+						                                    ItemsLayout="HorizontalList" 					
+                                                            Grid.Row="2"
+                                                            Grid.ColumnSpan="3"
+                                                            VerticalOptions="StartAndExpand"
+                                                            HorizontalScrollBarVisibility="Never"
+                                                            ItemsSource="{Binding Groups}"
+                                                            SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="8,0">
+                                    <shadows:Shadows CornerRadius="40" Shades="{shadows:SingleShade BlurRadius=22, Offset='5,2', Opacity=0.2, Color={StaticResource colorGray6F}}">
+                                        <pancake:PancakeView
+																                        Margin="0,15,15,15"
+																                        Padding="0,0,0,25"
+																                        BackgroundColor="{Binding backgroundColor}"
+																                        CornerRadius="40"
+																                        HeightRequest="90"
+																                        WidthRequest="75">
+                                            <Grid RowDefinitions="auto, *">
+                                                <pancake:PancakeView
+																	                        Grid.Row="0"
+																	                        Margin="12,12,12,0"
+																	                        Padding="0"
+																	                        BackgroundColor="{StaticResource colorGrayE0}"
+																	
+																	                        CornerRadius="30"
+																	                        HeightRequest="60"
+																	                        HorizontalOptions="Center"
+																	                        IsClippedToBounds="True"
+																	                        WidthRequest="60">
+                                                    <Image
+																		                        Aspect="AspectFit"
+																		                        HeightRequest="30"
+																		                        HorizontalOptions="CenterAndExpand"
+																		                        Source="{Binding image}"
+																		                        VerticalOptions="Center"
+																		                        WidthRequest="30" />
+                                                </pancake:PancakeView>
+                                                <Label
+																	                        Grid.Row="1"
+																	                        FontSize="10"
+                                                                                            FontFamily="RalewayBold"
+																	                        HorizontalOptions="FillAndExpand"
+																	                        HorizontalTextAlignment="Center"
+																	                        Text="{Binding description}"
+																	                        VerticalOptions="EndAndExpand" />
+                                            </Grid>
+                                            <pancake:PancakeView.GestureRecognizers>
+                                                <TapGestureRecognizer
+														                        Command="{Binding Path=BindingContext.SelectGroupCommand, Source={x:Reference listGroups}}"
+														                        CommandParameter="{Binding .}"
+														                        NumberOfTapsRequired="1" />
+                                            </pancake:PancakeView.GestureRecognizers>
+                                        </pancake:PancakeView>
+                                    </shadows:Shadows>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </ScrollView>
+
+                <Label x:Name="search_somthing_ek1"
+										Grid.Row="4" Grid.Column="0"
+                                        Padding="0,0"
+                                        Margin="{OnPlatform Android='5,50,0,-80',iOS='15,70'}"
+                                        VerticalOptions="Start"
+										FontFamily="RalewayRegular"
+										HorizontalTextAlignment="Start"
+										FontSize="17"
+										TextColor="{DynamicResource TextBar}"
+										Text="Resultados encontrados"/>
+              
+              
+            </StackLayout>
+            <ScrollView Grid.Row="3" VerticalScrollBarVisibility="Never" Margin="{OnPlatform Android='-15,90,0,0',iOS='-40,-60,0,-370'}" Grid.ColumnSpan="3" >
+               
+                <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="{OnPlatform Android='-10,-50,0,0',iOS='15,-150,0,0'}">
+
+                    <RefreshView
+                                    Margin="{OnPlatform Android='10,50,0,0',iOS='15,70,0,0'}"
+                                    IsRefreshing="{Binding IsRefreshing}"
+                                     Command="{Binding RefreshCommand}"
+                                     RefreshColor="{DynamicResource Trueketea}">
+
+                        <CollectionView x:Name="listItems" Grid.Column="0"  Margin="{OnPlatform Android='15,-5,0,0',iOS='15,70,0,0'}" 
+                                    Grid.Row="2" Grid.ColumnSpan="4"
+                                    VerticalScrollBarVisibility="Never" 
+                                    ItemsSource="{Binding FilteredItems}"
+                                    SelectionMode="Single"
+                                    VerticalOptions="StartAndExpand">
+
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout  Orientation="Vertical" Span="2" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*,*" RowDefinitions="*,Auto,Auto" Padding="8" HeightRequest="300">
+                                        <pancake:PancakeView
+                                            BackgroundColor="{StaticResource colorWhiteF3}"
+                                            CornerRadius="20,20,20,20"
+                                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                                            WidthRequest="165">
+                                            <Grid
+                                                ColumnDefinitions="auto, *, auto"
+                                                RowDefinitions="auto, auto, auto, auto, auto"
+                                                RowSpacing="0">
+
+                                                <Button 
+                                                    Grid.Column="2" 
+                                                    Grid.Row="4"
+                                                    Margin="0,-8,0,0"
+                                                    Command="{Binding Path=BindingContext.AddFavoriteCommand, Source={x:Reference listItems}}"
+                                                    CommandParameter="{Binding .}"
+                                                    Text="{StaticResource Fav}"
+                                                    FontFamily="FA"
+                                                    FontSize="18"
+                                                    TextColor="{Binding backgroundColor}"
+                                                    IsVisible="{Binding favorite}"
+                                                    HorizontalOptions="Center" 
+                                                    VerticalOptions="Center"
+                                                    BackgroundColor="{DynamicResource Transparent}"
+                                                    />
+                                                
+                                                <Image
+                                                    Grid.Row="1"
+                                                    Grid.ColumnSpan="3"
+                                                    Margin="0,0,0,30"
+                                                    Aspect="AspectFill"
+                                                    HeightRequest="150"
+                                                    WidthRequest="150"
+                                                    Source="{Binding image}"/>
+                                                <Label Grid.Column="0" 
+                                                       LineBreakMode="TailTruncation"
+                                                       Grid.ColumnSpan="3"
+                                                       TextColor="{StaticResource TextBar}"
+                                                       Grid.Row="2" 
+                                                       Text="{Binding description}" 
+                                                       FontAttributes="Bold" 
+                                                       Padding="0,5,0,0"/>
+                                                
+                                                <Label
+                                                    Grid.Row="3"
+                                                    Grid.ColumnSpan="3"
+                                                    FontSize="14"
+                                                    LineBreakMode="TailTruncation"
+                                                    Text="{Binding complement}" />
+                                                <Label Grid.Column="0" 
+                                                       Grid.Row="4" 
+                                                       FontSize="22"
+                                                        IsVisible="{Binding favorite}"
+                                                       Text="{Binding price, StringFormat='€{0}'}" 
+                                                       TextColor="{StaticResource TextBar}" 
+                                                       FontAttributes="Bold"/>
+                                                
+                                            </Grid>
+                                            <pancake:PancakeView.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding Path=BindingContext.NavigateToDetailPageCommand, Source={x:Reference listItems}}"
+                                                    CommandParameter="{Binding .}"
+                                                    NumberOfTapsRequired="1" />
+                                            </pancake:PancakeView.GestureRecognizers>
+                                        </pancake:PancakeView>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
+
+                </StackLayout>
+
+
+            </ScrollView>
+            
+            <ActivityIndicator 
+                Color="{DynamicResource Trueketea}"
+                IsRunning="{Binding IsBusy}"
+                 HorizontalOptions="Center" 
+                VerticalOptions="Center"/>
+            <ImageButton 
+                    Grid.Row="4" 
+                    Command="{Binding AddProductCommand}"
+                    BackgroundColor="{DynamicResource Transparent}"
+                    HorizontalOptions="End" 
+                    Margin="0,-50,-100,1" 
+                    VerticalOptions="End"
+                    Source ="addbutton.png"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

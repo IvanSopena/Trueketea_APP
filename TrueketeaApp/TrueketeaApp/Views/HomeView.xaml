@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrueketeaApp.Views.HomeView"
+             xmlns:local="clr-namespace:TrueketeaApp.Views"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+              android:TabbedPage.BarSelectedItemColor="{DynamicResource Trueketea}"
+             android:TabbedPage.BarItemColor="{DynamicResource Steel}"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             BackgroundColor="{DynamicResource TextColor}"
+             BarBackgroundColor="{DynamicResource colorGrayE0}"
+             NavigationPage.HasNavigationBar="False">
+   
+
+    <local:MainView Title="Principal">
+        <local:MainView.IconImageSource>
+            <FontImageSource
+                FontFamily="FA"
+                Glyph="{StaticResource Home01}"
+                Size="16" />
+        </local:MainView.IconImageSource>
+    </local:MainView>
+
+    <local:FavView Title="Favoritos">
+        <local:FavView.IconImageSource>
+            <FontImageSource
+                FontFamily="FA"
+                Glyph="{StaticResource Fav}"
+                Size="16" />
+        </local:FavView.IconImageSource>
+    </local:FavView>
+
+   
+     <local:MyArticlesView Title="Articulos">
+        <local:MyArticlesView.IconImageSource>
+            <FontImageSource
+                FontFamily="FA"
+                Glyph="{StaticResource Article}"
+                Size="16" />
+        </local:MyArticlesView.IconImageSource>
+    </local:MyArticlesView>
+
+
+    <local:ChatListView Title="Chat">
+        <local:ChatListView.IconImageSource>
+            <FontImageSource
+                FontFamily="FA"
+                Glyph="{StaticResource Conversation}"
+                Size="16" />
+        </local:ChatListView.IconImageSource>
+    </local:ChatListView>
+
+   
+    <local:MenuView Title="Más">
+        <local:MenuView.IconImageSource>
+            <FontImageSource
+                FontFamily="UI"
+                Glyph="{StaticResource Menu}"
+                Size="16" />
+        </local:MenuView.IconImageSource>
+    </local:MenuView>
+ 
+
+</TabbedPage>

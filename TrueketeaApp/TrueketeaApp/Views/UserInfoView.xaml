@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls" 
+             x:Name="InfoUserProfile"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.UserInfoView">
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource colorGrayE0}">
+            <controls:TitleView Title="Información del usuario" FontFamily="RalewayBold" FontSize="18" BackgroundColor="{DynamicResource Trueketea}">
+                <controls:TitleView.LeadingView>
+                    <buttons:SfButton
+                            x:Name="backButton"
+                            TextColor="{DynamicResource TextColor}"
+                            Command="{Binding BindingContext.BackButtonCommand, Source={x:Reference InfoUserProfile}}"
+                            CommandParameter="{x:Reference backButton}"
+                            Style="{StaticResource IconButtonStyleFA}"
+                            Text="{StaticResource Return}" />
+                </controls:TitleView.LeadingView>
+            </controls:TitleView>
+            <AbsoluteLayout >
+                <AbsoluteLayout  x:Name="top" AbsoluteLayout.LayoutBounds="0,0,412,229">
+                    <AbsoluteLayout x:Name="userinfo" AbsoluteLayout.LayoutBounds="59,10,277,90">
+
+                        <AbsoluteLayout AbsoluteLayout.LayoutBounds="20,0,85,90">
+                            <Frame CornerRadius="{OnPlatform Android='100',iOS='35'}" 
+                                           HorizontalOptions="Center"
+                                           Padding="0"
+                                           IsClippedToBounds="True">
+                                <Image x:Name="elipse_421"
+                                          HeightRequest="70"
+                                           WidthRequest="70"
+						               Source="{Binding UserPhoto}"/>
+                            </Frame>
+                        </AbsoluteLayout>
+
+
+                        <Label x:Name="manish_chutake"
+						        FontFamily="PoppinsBold"
+						        FontSize="20"
+						        TextColor="{DynamicResource TextBar}"
+						        AbsoluteLayout.LayoutBounds="100,6,280,34"
+						        Text="{Binding UserName}"/>
+                        <Label x:Name="manishuxuid_gmail_com"
+						        FontFamily="PoppinsBold"
+						        FontSize="12"
+						        TextColor="{DynamicResource TextBar}"
+						        AbsoluteLayout.LayoutBounds="100,35,165,25"
+						        Text="{Binding USerEmail}"/>
+
+
+
+
+                        <AbsoluteLayout x:Name="grupo_9229" AbsoluteLayout.LayoutBounds="100,58,118.60205078125,19.44580078125">
+
+                            <Image x:Name="icon_awesome_star"
+							    Source="{Binding Star1}"
+							    AbsoluteLayout.LayoutBounds="-1,-1,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek1"
+							    Source="{Binding Star2}"
+							    AbsoluteLayout.LayoutBounds="24,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek2"
+							    Source="{Binding Star3}"
+							    AbsoluteLayout.LayoutBounds="49,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek3"
+							    Source="{Binding Star4}"
+							    AbsoluteLayout.LayoutBounds="74,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek4"
+							    Source="{Binding Star5}"
+							    AbsoluteLayout.LayoutBounds="99,0,19.63,20.47" />
+
+                        </AbsoluteLayout>
+
+                        <Label 
+					            FontFamily="RalewayLight"
+					            HorizontalTextAlignment="Center"
+					            FontSize="20"
+					            TextColor="#242134"
+					            AbsoluteLayout.LayoutBounds="10,90,290,38"
+					            Text="{Binding LastConnection}"/>
+
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout x:Name="grupo_9233" AbsoluteLayout.LayoutBounds="157,140,102,25">
+
+                        <Button
+                            BackgroundColor="{DynamicResource Trueketea}"
+                            CornerRadius="12"
+                            Text="{Binding ButtonText}"
+                            Command="{Binding AddFriendCommand}"
+                            FontSize="14"
+                            Font="PoppinsMedium"
+                            TextColor="{DynamicResource TextColor}"
+                            HeightRequest="35"/>
+
+
+                    </AbsoluteLayout>
+
+                </AbsoluteLayout>
+
+                <BoxView x:Name="rect_ngulo_6313"
+				        CornerRadius="71"
+				        Color="{DynamicResource TextColor}"
+				        AbsoluteLayout.LayoutBounds="-6,200,425,1197" />
+
+                <AbsoluteLayout x:Name="grupo_248_ek1" AbsoluteLayout.LayoutBounds="30,220,500,20.560791015625">
+
+                    <Label x:Name="name_ek1"
+							    FontFamily="PoppinsMedium"
+							    FontAttributes="Bold"
+							    FontSize="14"
+							    TextColor="#454553"
+							    AbsoluteLayout.LayoutBounds="0,-4,168.5927734375,32.560791015625"
+							    Text="{Binding Articles}"/>
+                        
+                </AbsoluteLayout>
+
+
+                <CollectionView HorizontalScrollBarVisibility="Never"
+                                        VerticalOptions="Start"
+                                        Margin="0,-15"
+                                        AbsoluteLayout.LayoutBounds="30,260,460,360"
+                                        ItemsSource="{Binding MyProducts}"
+                                        ItemsLayout="HorizontalList"
+                                       
+                                        HeightRequest="350">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <AbsoluteLayout >
+
+                                <Image Source="{Binding image}" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" VerticalOptions="Start" />
+
+                            </AbsoluteLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <AbsoluteLayout x:Name="grupo_9248" AbsoluteLayout.LayoutBounds="16.5,514.3037109375,150,150">
+                    <AbsoluteLayout x:Name="grupo_930" AbsoluteLayout.LayoutBounds="0,0,150,50">
+                        <Image x:Name="trazado_334"
+						       Source="rectangle"
+			                   AbsoluteLayout.LayoutBounds="-1,-100,380,54" />
+                        
+                        <Label x:Name="name"
+									FontFamily="Nunito"
+									FontAttributes="Bold"
+									FontSize="14"
+									TextColor="#454553"
+									AbsoluteLayout.LayoutBounds="5,-85,150,20"
+									Text="{Binding Comments}"/>
+                    </AbsoluteLayout>
+                </AbsoluteLayout>
+
+                <ImageButton x:Name="__img_comment"
+				                  Source="img_comment"
+                                  Command="{Binding AddCommentCommand}"
+                                  BackgroundColor="{DynamicResource Transparent}"
+				                  AbsoluteLayout.LayoutBounds="300,425,110.5927734375,32.560791015625" />
+
+                <ScrollView  AbsoluteLayout.LayoutBounds="5,475,370,260">
+                    <StackLayout Orientation="Vertical" >
+                        <RefreshView
+                                     IsRefreshing="{Binding IsRefreshing}"
+                                     Command="{Binding RefreshCommand}"
+                                     RefreshColor="{DynamicResource Trueketea}">
+                        <CollectionView 
+                                        VerticalOptions="Start"
+                                        VerticalScrollBarVisibility="Always"
+                                        Margin="0,15"
+                                        ItemsSource="{Binding MyComments}">
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <AbsoluteLayout Margin="{OnPlatform Android='5,15,190,10',iOS='5,25,190,10'}">
+
+                                        <Frame CornerRadius="{OnPlatform Android='100',iOS='25'}"  
+                                                            HorizontalOptions="Center"
+                                                            Padding="0"
+                                                            Margin="3,0"
+                                                            IsClippedToBounds="True">
+
+                                            <Image Source="{Binding Foto}" 
+                                                   HorizontalOptions="Center"
+                                                   HeightRequest="50"
+                                                   Aspect="AspectFill"
+                                                   WidthRequest="50"
+                                                   VerticalOptions="Center" />
+                                        </Frame>
+
+                                        <Label x:Name="linda_mar_ocean_ek1"
+							                    FontFamily="Nunito"
+							                    FontAttributes="Bold"
+							                    FontSize="15"
+							                    TextColor="#79818b"
+							                    Margin="{OnPlatform Android='55,0',iOS='55,0'}"
+                                                Padding="{OnPlatform Android='0,-5',iOS='0,-3'}"
+							                    Text="{Binding Emisor} "/>
+
+                                        <Label x:Name="linda_mar_ocean"
+							                    FontFamily="PoppinsRegular"
+							                    FontSize="15"
+							                    TextColor="#79818b"
+							                    Margin="60,15,15,3"
+							                    Text="{Binding msg}"/>
+
+
+                                        <Image x:Name="star"
+                                                Margin="235,0,20,5"
+							                    Source="{Binding VotesImg}"/>
+                                    </AbsoluteLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        </RefreshView>
+                    </StackLayout>
+                </ScrollView>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

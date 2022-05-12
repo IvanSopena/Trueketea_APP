@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrueketeaApp.Views.LoginView"
+             xmlns:viewModel="clr-namespace:TrueketeaApp.ViewModels"
+             xmlns:local="clr-namespace:TrueketeaApp.MyControls" 
+             NavigationPage.HasNavigationBar="False">
+
+
+    <!--  Binding context for login page  -->
+    <!--<ContentPage.BindingContext>
+        <viewModel:LoginViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <ScrollView.VerticalOptions>
+                <OnIdiom
+                        x:TypeArguments="LayoutOptions"
+                        Default="CenterAndExpand"
+                        Phone="FillAndExpand" />
+            </ScrollView.VerticalOptions>
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <AbsoluteLayout x:Name="butons"  
+                                Grid.Row="2" Grid.Column="0" 
+                                VerticalOptions="CenterAndExpand" 
+                                
+                                HorizontalOptions="CenterAndExpand">
+
+
+             
+                    <ImageButton x:Name="__img_btnface"
+					             Source="__img_btnface.png"
+                                 BackgroundColor="{DynamicResource Transparent}"
+                                 Command="{Binding FBCommand}"
+					             AbsoluteLayout.LayoutBounds="20,-21,362,110.16" />
+                    <ImageButton x:Name="__img_btngoogle"
+                                 Command="{Binding GoogleCommand}"
+                                 BackgroundColor="{DynamicResource Transparent}"
+					            Source="__img_btngoogle.png"
+					            AbsoluteLayout.LayoutBounds="20,48,362,108.82" />
+                </AbsoluteLayout>
+
+
+                <AbsoluteLayout x:Name="login"  Grid.Row="1" Grid.Column="0" 
+                                
+                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+
+
+                    <Image x:Name="__img_contendor_login"
+					Source="__img_contendor_login.png"
+					AbsoluteLayout.LayoutBounds="-10,38,398,316" />
+
+
+                    <StackLayout AbsoluteLayout.LayoutBounds="35,85,290,60" >
+
+                        <local:ImageEntry 
+                            x:Name="EMAIL"
+                            TextColor="Black" 
+                            PlaceholderColor="Black" 
+                            Image="mail" 
+                            Placeholder="Email" 
+                            FontFamily="PoppinsLight"
+                            Keyboard="Email"
+                            HorizontalOptions="FillAndExpand"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                   IsVisible="{Binding IsVisbleMail}"
+                                   TextColor="{DynamicResource Red}"
+                                   Text="{DynamicResource Error}"/>
+                            <Label
+                                x:Name="ErrValidationMail"    
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Error}"
+                                IsVisible="{Binding IsVisbleMail}"
+                                TextColor="{DynamicResource Red}"
+                                 />
+                           
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout AbsoluteLayout.LayoutBounds="35,170,290,60" >
+
+                        <local:ImageEntry
+                        x:Name="Password" 
+                        TextColor="Black" 
+                        PlaceholderColor="Black" 
+                        FontFamily="PoppinsMedium"
+                        Image="key" 
+                        Placeholder="Contraseña" 
+                        Keyboard="Text"
+                        IsPassword="True"
+                        HorizontalOptions="FillAndExpand"/>
+                        
+                        <StackLayout Orientation="Horizontal">
+                            <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                   IsVisible="{Binding IsVisblePass}"
+                                   TextColor="{DynamicResource Red}"
+                                   Text="{DynamicResource Error}"/>
+                            <Label
+                                x:Name="ErrPassword"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Error}"
+                                IsVisible="{Binding IsVisblePass}"
+                                TextColor="{DynamicResource Red}"/>
+                            <!--<Label
+                                x:Name="ErrPassword"
+                                FontFamily="PoppinsLight"
+                                Margin="15,-3,0,0"
+                                Padding="10"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Error}"
+                                IsVisible="{Binding IsVisblePass}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />-->
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+                    <Button x:Name="__olvidaste_tu_contrase_a_"
+					FontFamily="PoppinsLight"
+                    Command="{Binding ForgotPasswordCommand}"
+					FontSize="14"
+                    BackgroundColor="{DynamicResource Transparent}"
+					TextColor="#bcbcbc"
+					AbsoluteLayout.LayoutBounds="90,235,280,60"
+					Text="¿Olvidaste tu Contraseña?" />
+
+
+
+                    <Label x:Name="login_ek1"
+					FontFamily="PoppinsLight"
+					FontAttributes="Bold"
+					FontSize="33"
+					TextColor="{DynamicResource Trueketea}"
+					AbsoluteLayout.LayoutBounds="138,-4,112,70.5"
+					Text="Login"
+				 />
+                    <ImageButton x:Name="__img_btnentrar"
+					            Source="__img_btnentrar.png"
+                                Command="{Binding LoginCommand}"
+                                     BackgroundColor="{DynamicResource Transparent}"
+					            AbsoluteLayout.LayoutBounds="80,270,229,108" />
+
+
+                    <!--<Button 
+                        Command="{Binding TempCommand}"
+                        BackgroundColor="{DynamicResource FacebookBlue}"
+                        Text="BORRAME ES UNA PRUEBA DE ACCESO DIRECTO"/>-->
+                    
+                    <AbsoluteLayout x:Name="separador"
+					 AbsoluteLayout.LayoutBounds="40,386,302,18"
+					 >
+
+                        <Label x:Name="or"
+						FontFamily="PoppinsLight"
+						FontSize="13"
+						TextColor="#787c81"
+						AbsoluteLayout.LayoutBounds="140,0,29,27.5"
+						Text="OR"
+					 />
+                        <Image x:Name="l_nea_1"
+						Source="l_nea_1.png"
+						AbsoluteLayout.LayoutBounds="0,9,121,1" />
+                        <Image x:Name="l_nea_2"
+						Source="l_nea_2.png"
+						AbsoluteLayout.LayoutBounds="181,9,121,1" />
+                    </AbsoluteLayout>
+
+                </AbsoluteLayout>
+
+                <AbsoluteLayout
+                    Grid.Row="3" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="__img_piclogin"
+				            Source="__img_piclogin.png"/>
+                    <!--AbsoluteLayout.LayoutBounds="67.76,565.95,288.99,207.65"-->
+                </AbsoluteLayout>
+
+                <ActivityIndicator 
+                    Grid.Row="2" 
+                    IsVisible="{Binding IsBusy}"
+                    Color="{DynamicResource Trueketea}"
+                    IsRunning="{Binding IsBusy}"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+
+            </Grid>
+        </ScrollView>
+
+        
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

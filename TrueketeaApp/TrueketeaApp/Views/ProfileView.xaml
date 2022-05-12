@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    NavigationPage.HasNavigationBar="False"
+     xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:local="clr-namespace:TrueketeaApp.MyControls" 
+    x:Class="TrueketeaApp.Views.ProfileView">
+
+
+    <ContentPage.Content>
+
+       
+            <StackLayout>
+                <AbsoluteLayout x:Name="top"
+				 AbsoluteLayout.LayoutBounds="0,0,412,93">
+                    <BoxView x:Name="rect_ngulo_1"
+					Color="#0bbf2f"
+					AbsoluteLayout.LayoutBounds="0,0,412,84" />
+                    <Label 
+					FontFamily="RalewayBold"
+					FontSize="20"
+					TextColor="#ffffff"
+					AbsoluteLayout.LayoutBounds="160,45,92,62"
+					Text="Mi Perfil"/>
+                    <Button 
+					FontFamily="FA"
+                    Command="{Binding ReturnCommand}"
+                    BackgroundColor="{DynamicResource Transparent}"
+                    Text="{StaticResource Return}"
+                    FontSize="16"
+                    TextColor="{DynamicResource TextColor}"
+					AbsoluteLayout.LayoutBounds="32,40,70,40" />
+                </AbsoluteLayout>
+           
+               
+
+                <AbsoluteLayout x:Name="user"
+				 AbsoluteLayout.LayoutBounds="84,101.52294921875,244,211.47705078125">
+
+                    <Label 
+					FontFamily="RalewayBold"
+					HorizontalTextAlignment="Center"
+					FontSize="32"
+					TextColor="#242134"
+					AbsoluteLayout.LayoutBounds="70,143,300,59"
+					Text="{Binding UserName}"/>
+                    <Label 
+					FontFamily="RalewayLight"
+					HorizontalTextAlignment="Center"
+					FontSize="20"
+					TextColor="#242134"
+					AbsoluteLayout.LayoutBounds="65,183,290,38"
+					Text="{Binding LastConnection}"/>
+
+                    <AbsoluteLayout AbsoluteLayout.LayoutBounds="150,30,120,120">
+                        <Frame CornerRadius="{OnPlatform Android='100',iOS='50'}"
+                                       HorizontalOptions="Center"
+                                       Padding="0"
+                                       IsClippedToBounds="True">
+                            <Image x:Name="enmascarar_grupo_17"
+								Source="{Binding UserPhoto}"
+                                HeightRequest="100"
+                                WidthRequest="100"/>
+                        </Frame>
+                    </AbsoluteLayout>
+
+                    <ImageButton x:Name="__img_photo"
+                                 BackgroundColor="{DynamicResource Transparent}"
+                                 Command="{Binding AddPhotoCommand}"
+					            Source="img_photo.png"
+					            AbsoluteLayout.LayoutBounds="225,40,40,40" />
+                </AbsoluteLayout>
+
+            <ScrollView>
+                <Frame HasShadow="False" 
+                               BackgroundColor="{DynamicResource test}"  
+                               CornerRadius="30" Margin="0,10"  BorderColor="{DynamicResource TextBar}">
+
+                    <StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+
+                            <local:ImageEntry 
+                                            x:Name="Name"
+                                            TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Placeholder="Nombre*" 
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Text"
+                                            Text="{Binding Name}"
+                                            HorizontalOptions="FillAndExpand"/>
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisibleName}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding MyError}" 
+                                            IsVisible="{Binding IsVisibleName}"
+                                            TextColor="{DynamicResource Red}"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+
+                            <local:ImageEntry 
+                                            x:Name="Desc"
+                                            TextColor="{DynamicResource Steel}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Placeholder="Email" 
+                                            IsReadOnly="True"
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Text"
+                                            Text="{Binding Email}"
+                                            HorizontalOptions="FillAndExpand"/>
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisbleMail}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding MyError}"
+                                            IsVisible="{Binding IsVisbleMail}"
+                                            TextColor="{DynamicResource Red}"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+
+                            <local:ImageEntry 
+                                            TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Placeholder="Contraseña*" 
+                                            IsPassword="True"
+                                            Text="{Binding Password}"
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Text"
+                                            HorizontalOptions="FillAndExpand"/>
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisblePass}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding MyError}"
+                                            IsVisible="{Binding IsVisblePass}"
+                                            TextColor="{DynamicResource Red}"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+
+                            <combobox:SfComboBox x:Name="cmbProv" 
+                                                          Style="{StaticResource SimpleComboBoxStyle}"
+                                                        
+                                                         TextColor="{DynamicResource TextBar}"  
+                                                         Text="{Binding Province}"
+                                                         SelectedItem="{Binding SelectProv, Mode=TwoWay}"
+                                                         DataSource="{Binding Provinces}"
+                                                         >
+                                <combobox:SfComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding InternalCode}" />
+                                            <Label Text="{Binding Desc}" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </combobox:SfComboBox.ItemTemplate>
+
+                            </combobox:SfComboBox>
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisibleProvince}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding MyError}"
+                                            IsVisible="{Binding IsVisibleProvince}"
+                                            TextColor="{DynamicResource Red}"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+
+                            <local:ImageEntry 
+                                            TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Text="{Binding AppUser}"
+                                            Placeholder="App User" 
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Text"
+                                            HorizontalOptions="FillAndExpand"/>
+
+                            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisibleAppUser}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding MyError}"
+                                            IsVisible="{Binding IsVisibleAppUser}"
+                                            TextColor="{DynamicResource Red}"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical">
+
+                            <combobox:SfComboBox
+                                    SelectedValue="{Binding SelectGender, Mode=TwoWay}"
+                                    Style="{StaticResource SimpleComboBoxStyle}"
+                                    Text="{Binding Gender}"
+                                    TextColor="{DynamicResource TextBar}"  
+                                    VerticalOptions="CenterAndExpand"
+                                    Watermark="Genero">
+                                
+                                <combobox:SfComboBox.ComboBoxSource>
+                                    <ListCollection:List x:TypeArguments="x:String">
+                                        <x:String>Masculino</x:String>
+                                        <x:String>Femenino</x:String>
+                                    </ListCollection:List>
+                                </combobox:SfComboBox.ComboBoxSource>
+                            </combobox:SfComboBox>
+                            
+                        </StackLayout>
+
+                    <AbsoluteLayout x:Name="notifications" AbsoluteLayout.LayoutBounds="10.49658203125,750,375,113">
+
+                        <Button
+
+                            BorderColor="{DynamicResource Trueketea}"
+                            BackgroundColor="{DynamicResource Trueketea}"
+                            FontFamily="RalewayBold"
+							FontSize="18"
+                            Text="Modificar"
+                            TextColor="{DynamicResource TextColor}"
+                            CornerRadius="{OnPlatform Android='30',iOS='25'}" 
+                            Command="{Binding ModifyCommand}"
+                            AbsoluteLayout.LayoutBounds="70,30,211,51" 
+                            />
+
+                       <Button
+                            BorderColor="{DynamicResource Red}"
+                            BackgroundColor="{DynamicResource Red}"
+                            FontFamily="RalewayBold"
+							FontSize="18"
+                            Text="Eliminar Cuenta"
+                            TextColor="{DynamicResource TextColor}"
+                            CornerRadius="{OnPlatform Android='30',iOS='25'}" 
+                            Command="{Binding DeleteCommand}"
+                            AbsoluteLayout.LayoutBounds="70,90,211,51" />
+
+                            <!--<ImageButton x:Name="__img_delete"
+                                Command="{Binding DeleteCommand}"
+                                BackgroundColor="{DynamicResource Transparent}"
+					            Source="img_delete.png"
+					            AbsoluteLayout.LayoutBounds="70,90,211,51" />-->
+
+                    </AbsoluteLayout>
+
+                    </StackLayout>
+
+                </Frame>
+            </ScrollView>
+                
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

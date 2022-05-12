@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolbar="clr-namespace:TrueketeaApp.Views.customviews"
+             xmlns:local="clr-namespace:TrueketeaApp.MyControls" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+              ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.AddProductView">
+    <ContentPage.Content>
+        <StackLayout>
+            <toolbar:ToolBar BackButtonIsVisible="true"
+                             ToolBarTextSize="15"
+                             ButtonTextSize="15"
+                             ShareButtonIsVisible="false"
+                             OptionsButtonIsVisible="false"
+                             ToolBarTitle="Agregar Producto"/>
+
+
+            <Grid BackgroundColor="white">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="addproduct" Aspect="AspectFit" VerticalOptions="Start"/>
+                <Label Grid.Row="1" Text="Nuevo Producto" TextColor="{DynamicResource Trueketea}" 
+                       FontAttributes="Bold" FontSize="35" Margin="25,-85,0,0"/>
+                <ScrollView Grid.Row="2">
+
+                    <StackLayout>
+                        <ActivityIndicator 
+                                    Grid.Row="2" 
+                                    IsVisible="{Binding IsBusy}"
+                                    Color="{DynamicResource Trueketea}"
+                                    IsRunning="{Binding IsBusy}"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center"/>  
+                        
+                        <Frame HasShadow="False" 
+                               BackgroundColor="{DynamicResource test}"  
+                               CornerRadius="30" Margin="0,10"  BorderColor="{DynamicResource TextBar}">
+
+                            <StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+
+                                    <local:ImageEntry 
+                                            x:Name="ProductTitle"
+                                            TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Placeholder="Nombre Producto*" 
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Text"
+                                            Text="{Binding ProductName}"
+                                            HorizontalOptions="FillAndExpand"/>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                        <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisbleMail}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                        <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding Error}" 
+                                            IsVisible="{Binding IsVisbleMail}"
+                                            TextColor="{DynamicResource Red}"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Vertical">
+
+                                    <local:ImageEntry 
+                                            x:Name="Desc"
+                                            TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Placeholder="Descripción Breve*" 
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Text"
+                                            HorizontalOptions="FillAndExpand"/>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                        <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisbleMail}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                        <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding Error}"
+                                            IsVisible="{Binding IsVisbleMail}"
+                                            TextColor="{DynamicResource Red}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                    <local:ImageEntry 
+                                                x:Name="DescLarge"
+                                                TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                                FontSize="16"
+                                                Placeholder="Descripción" 
+                                                FontFamily="PoppinsLight"
+                                                Keyboard="Text"
+                                                HorizontalOptions="FillAndExpand"/>
+                                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                        <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisbleMail}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                        <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding Error}"
+                                            IsVisible="{Binding IsVisbleMail}"
+                                            TextColor="{DynamicResource Red}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                  
+                                    <combobox:SfComboBox x:Name="cmbCat" 
+                                                         BorderColor="{DynamicResource Trueketea}"
+                                                         TextColor="{DynamicResource TextBar}" 
+                                                         FontFamily="PoppinsLight"
+                                                         Text="Categoria*" 
+                                                         DropDownTextSize="16" 
+                                                         DropDownTextColor="#2c3e50"
+                                                         DropDownCornerRadius="7"
+                                                         SelectedItem="{Binding SelectCat, Mode=TwoWay}"
+                                                         DataSource="{Binding Groups}"
+                                                         TextSize="16">
+                                        <combobox:SfComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="{Binding image}" WidthRequest="12"/>
+                                                    <Label Text="{Binding description}" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </combobox:SfComboBox.ItemTemplate>
+
+                                    </combobox:SfComboBox>
+
+
+                                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                        <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisbleCat}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                        <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding CatError}"  
+                                            IsVisible="{Binding IsVisbleCat}"
+                                            TextColor="{DynamicResource Red}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                
+                                
+                                
+                                <StackLayout Orientation="Vertical">
+                                    <!--<Picker x:Name="Estado" 
+                                        TextColor="{DynamicResource TextBar}" 
+                                        TitleColor="{DynamicResource TextBar}"
+                                        Title="Estado*" 
+                                        FontSize="16"
+                                        FontFamily="PoppinsLight"
+                                        ItemsSource="{Binding Status}" 
+                                        SelectedItem="{Binding SelectStatus, Mode=TwoWay}" 
+                                        ItemDisplayBinding="{Binding StatusName}"/>-->
+                                    <combobox:SfComboBox x:Name="cmbStatus" 
+                                                         BorderColor="{DynamicResource Trueketea}"
+                                                         TextColor="{DynamicResource TextBar}" 
+                                                         FontFamily="PoppinsLight"
+                                                         Text="Estado*" 
+                                                         DropDownTextSize="16" 
+                                                         DropDownTextColor="#2c3e50"
+                                                         DropDownCornerRadius="7"
+                                                         DataSource="{Binding Status}"
+                                                         SelectedItem="{Binding SelectStatus, Mode=TwoWay}"
+                                                         TextSize="16">
+                                        <combobox:SfComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{DynamicResource Camera}" FontFamily="UI" />
+                                                    <Label Text="{Binding StatusName}" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </combobox:SfComboBox.ItemTemplate>
+
+                                    </combobox:SfComboBox>
+
+
+                                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                        <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                               IsVisible="{Binding IsVisbleMail}"
+                                               TextColor="{DynamicResource Red}"
+                                               Text="{DynamicResource Error}"/>
+                                        <Label
+                                            Style="{StaticResource SimpleLabelStyle}"
+                                            Text="{Binding Error}"  
+                                            IsVisible="{Binding IsVisbleMail}"
+                                            TextColor="{DynamicResource Red}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start">
+                                    <Label 
+					                    FontFamily="RalewayBold"
+                                        Padding="20"
+					                    FontSize="14"
+					                    TextColor="{DynamicResource Trueketea}"
+					                    Text="Puedes agregar hasta 4 fotos."/>
+                                    <Button
+                                            FontFamily="UI"
+                                            FontSize="22"
+                                        BackgroundColor="{DynamicResource Transparent}"
+                                            Command="{Binding AddPhotoCommand}"
+                                            TextColor="{DynamicResource Trueketea}"
+                                            Text="{DynamicResource Camera}" />
+
+
+                                </StackLayout>
+                                <ScrollView HorizontalOptions="CenterAndExpand">
+                                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Center">
+
+                                        <Image x:Name="Foto1" HeightRequest="70" WidthRequest="70" Source="addfoto" />
+                                        <Image x:Name="Foto2" HeightRequest="70" WidthRequest="70" Source="addfoto" />
+                                        <Image x:Name="Foto3" HeightRequest="70" WidthRequest="70" Source="addfoto" />
+                                        <Image x:Name="Foto4" HeightRequest="70" WidthRequest="70" Source="addfoto" />
+
+                                    </StackLayout>
+                                </ScrollView>
+
+                                <AbsoluteLayout x:Name="precio"
+				                                AbsoluteLayout.LayoutBounds="22,813,357.49658203125,66.5">
+
+                                    <Image x:Name="line_4_ek3"
+					                        Source="line_4_ek3.png"
+					                        AbsoluteLayout.LayoutBounds="0,66,358.49,1" />      
+                                    <Label x:Name="you_have_2_new_messa"
+					                        FontFamily="Raleway"
+					                        
+					                        FontSize="14"
+					                        TextColor="{DynamicResource TextBar}"
+					                        AbsoluteLayout.LayoutBounds="5,37,318,26"
+					                        Text="Presiona el botón de tasar para obtener el precio."/>
+                                    <Label x:Name="name_ek3"
+					                        FontFamily="RalewayBold"
+					                        FontSize="16"
+					                        TextColor="#919191"
+					                        AbsoluteLayout.LayoutBounds="0,0,64,30"
+					                        Text="Precio*"/>
+                                </AbsoluteLayout>
+
+                                <ImageButton x:Name="__img_tasar"
+				                                Source="tasar.png"
+                                             Command="{Binding PriceCommand}"
+                                                BackgroundColor="{DynamicResource Transparent}"
+				                                AbsoluteLayout.LayoutBounds="26,950,360,52" />
+
+
+                                <ImageButton x:Name="__img_subir"
+                                             Command="{Binding AddCommand}"
+				                              Source="subir.png"
+                                              BackgroundColor="{DynamicResource Transparent}"
+				                              AbsoluteLayout.LayoutBounds="26,1022,360,52" />     
+
+                            </StackLayout>
+
+
+                        </Frame>
+                    </StackLayout>
+
+                </ScrollView>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

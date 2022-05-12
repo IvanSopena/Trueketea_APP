@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls" 
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.ProfileFavView">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:TitleView Title="Mis Favoritos" FontFamily="RalewayBold" FontSize="18" BackgroundColor="{DynamicResource Trueketea}"/>
+
+            <AbsoluteLayout>
+                <Label x:Name="search_somthing"
+				        FontFamily="RalewayBold"
+				        HorizontalTextAlignment="Center"
+				        FontSize="30"
+				        TextColor="#040404"
+				        AbsoluteLayout.LayoutBounds="51,20,300,58"
+				        Text="Perfiles Favoritos"/>
+            </AbsoluteLayout>
+
+            <!--<StackLayout x:Name="ButtonsNav" Orientation="Horizontal" Margin="25,-5" >
+
+                <Button
+                    Text="Productos"
+                    FontSize="12"
+                    FontFamily="RalewayRegular"
+                    TextColor="{DynamicResource TextColor}"
+                    CornerRadius="12"
+                    Margin="70,0"
+                    Command="{Binding Nav}"
+                    HeightRequest="40"
+                    BackgroundColor="{DynamicResource colorGray6F}"/>
+
+                <Button
+                    Text="Perfiles"
+                    FontSize="12"
+                    FontFamily="RalewayRegular"
+                    TextColor="{DynamicResource TextColor}"
+                    CornerRadius="12"
+                    Margin="-50,0"
+                    HeightRequest="40"
+                    WidthRequest="90"
+                    BackgroundColor="{DynamicResource Trueketea}"/>
+
+            </StackLayout>-->
+
+            <ScrollView BackgroundColor="{DynamicResource colorWhite}">
+
+                <StackLayout Grid.Row="2" Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="3" Margin="{OnPlatform Android='-10,10,0,0',iOS='15,20,0,0'}">
+                    <RefreshView
+                                     IsRefreshing="{Binding IsRefreshing}"
+                                     Command="{Binding RefreshCommand}"
+                                     RefreshColor="{DynamicResource Trueketea}">
+
+                        <CollectionView x:Name="MisProductos" 
+                                    ItemsSource="{Binding MyProducts}" 
+                                   VerticalOptions="Start"
+                                   VerticalScrollBarVisibility="Never"
+                                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Frame HasShadow="False" BackgroundColor="{DynamicResource colorGrayF4}"  HeightRequest="60" 
+                                               CornerRadius="20"  Margin="15,10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <pancake:PancakeView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" CornerRadius="{OnPlatform Android='5',iOS='30'}"   Margin="5,0,5,0">
+
+
+                                                    <Image Source="{Binding image}" 
+                                                               HorizontalOptions="Center"
+                                                               HeightRequest="100"
+                                                               Aspect="AspectFill"
+                                                               WidthRequest="100"
+                                                               VerticalOptions="Center" />
+
+                                                    <pancake:PancakeView.GestureRecognizers>
+                                                        <TapGestureRecognizer
+														        Command="{Binding Path=BindingContext.SelectGroupCommand, Source={x:Reference MisProductos}}"
+														        CommandParameter="{Binding .}"
+														        NumberOfTapsRequired="1" />
+                                                    </pancake:PancakeView.GestureRecognizers>
+
+                                                </pancake:PancakeView>
+                                                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding description}" 
+                                                       FontSize="15" TextColor="{DynamicResource TextBar}" FontAttributes="Bold"/>
+
+                                                <Label Grid.Row="1" Grid.Column="1" Margin="1,0,0,0" 
+                                                       Grid.ColumnSpan="2" Text="{Binding status}"
+                                                       FontSize="15" TextColor="#a4a7b6"/>
+
+                                                <StackLayout Grid.Row="2" Grid.Column="1"  Orientation="Horizontal">
+                                                    <Label
+                                                        FontFamily ="FA"
+                                                        Margin="0,3,3,-3"
+                                                        Text="{DynamicResource Fav}"
+                                                        FontSize="15"/>
+                                                    <Label  FontAttributes="Bold" 
+                                                       FontSize="15" VerticalOptions="Center" 
+                                                       Text="{Binding rating}" />
+                                                </StackLayout>
+
+
+                                                <AbsoluteLayout Grid.Column="2" Grid.Row="2" >
+                                                    <BoxView x:Name="rect_ngulo_14_ek3"
+							                                    CornerRadius="9"
+							                                    Color="#0bbf2f"
+							                                    AbsoluteLayout.LayoutBounds="0,0,75,18" />
+                                                    <Label x:Name="categoria_ek3"
+							                                FontFamily="Raleway"
+							                                HorizontalTextAlignment="Center"
+							                                FontSize="12"
+							                                TextColor="#ffffff"
+							                                AbsoluteLayout.LayoutBounds="14,0,49,18"
+							                                Text="{Binding category}" />
+                                                </AbsoluteLayout>
+                                            </Grid>
+
+                                        </Frame>
+
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
+                </StackLayout>
+
+
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

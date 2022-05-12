@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Name="WriteComments"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls"
+             x:Class="TrueketeaApp.Views.CommentsView">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource colorGrayE0}">
+            <controls:TitleView Title="Deja un comentario" FontFamily="RalewayBold" FontSize="18" BackgroundColor="{DynamicResource Trueketea}">
+                <controls:TitleView.LeadingView>
+                    <buttons:SfButton
+                                x:Name="backButton"
+                                TextColor="{DynamicResource TextColor}"
+                                Command="{Binding BindingContext.BackButtonCommand, Source={x:Reference WriteComments}}"
+                                CommandParameter="{x:Reference backButton}"
+                                Style="{StaticResource IconButtonStyleFA}"
+                                Text="{StaticResource Return}" />
+                </controls:TitleView.LeadingView>
+            </controls:TitleView>
+
+            <AbsoluteLayout >
+                <AbsoluteLayout  x:Name="top" AbsoluteLayout.LayoutBounds="0,0,412,229">
+                    <AbsoluteLayout x:Name="userinfo" AbsoluteLayout.LayoutBounds="59,10,277,90">
+
+                        <AbsoluteLayout AbsoluteLayout.LayoutBounds="20,0,85,90">
+                            <Frame CornerRadius="{OnPlatform Android='100',iOS='35'}" 
+                                           HorizontalOptions="Center"
+                                           Padding="0"
+                                           IsClippedToBounds="True">
+                                <Image x:Name="elipse_421"
+                                          HeightRequest="70"
+                                           WidthRequest="70"
+						               Source="{Binding UserPhoto}"/>
+                            </Frame>
+                        </AbsoluteLayout>
+
+
+                        <Label x:Name="manish_chutake"
+						        FontFamily="PoppinsBold"
+						        FontSize="20"
+						        TextColor="{DynamicResource TextBar}"
+						        AbsoluteLayout.LayoutBounds="100,6,280,34"
+						        Text="{Binding UserName}"/>
+                        <Label x:Name="manishuxuid_gmail_com"
+						        FontFamily="PoppinsBold"
+						        FontSize="12"
+						        TextColor="{DynamicResource TextBar}"
+						        AbsoluteLayout.LayoutBounds="100,35,165,25"
+						        Text="{Binding USerEmail}"/>
+
+
+
+
+                        <AbsoluteLayout x:Name="grupo_9229" AbsoluteLayout.LayoutBounds="100,58,118.60205078125,19.44580078125">
+
+                            <Image x:Name="icon_awesome_star"
+							    Source="{Binding Star1}"
+							    AbsoluteLayout.LayoutBounds="-1,-1,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek1"
+							    Source="{Binding Star2}"
+							    AbsoluteLayout.LayoutBounds="24,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek2"
+							    Source="{Binding Star3}"
+							    AbsoluteLayout.LayoutBounds="49,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek3"
+							    Source="{Binding Star4}"
+							    AbsoluteLayout.LayoutBounds="74,0,19.63,20.47" />
+                            <Image x:Name="icon_awesome_star_ek4"
+							    Source="{Binding Star5}"
+							    AbsoluteLayout.LayoutBounds="99,0,19.63,20.47" />
+
+                        </AbsoluteLayout>
+
+                        <Label 
+					            FontFamily="RalewayLight"
+					            HorizontalTextAlignment="Center"
+					            FontSize="20"
+					            TextColor="#242134"
+					            AbsoluteLayout.LayoutBounds="10,90,290,38"
+					            Text="{Binding LastConnection}"/>
+
+                    </AbsoluteLayout>
+                </AbsoluteLayout>
+
+                <BoxView x:Name="rect_ngulo_6313"
+				        CornerRadius="71"
+				        Color="{DynamicResource TextColor}"
+				        AbsoluteLayout.LayoutBounds="{OnPlatform Android='-6,200,425,1197',iOS='-6,200,425,1197'}" />
+
+
+                <Frame 
+                     CornerRadius="20" BorderColor="{DynamicResource TextBar}" Margin="{OnPlatform Android='10,230',iOS='10,230'}">
+                    <Editor x:Name="ReportText"
+                            Keyboard="Text"
+                            Text="{Binding Comment}"
+                            HeightRequest="{OnPlatform Android='150',iOS='150'}"
+                            WidthRequest="{OnPlatform Android='340',iOS='340'}"
+                            MaxLength="150"
+                            HorizontalOptions="FillAndExpand"
+                            Placeholder="Escribre aqui la incidencia (max. 150 carac.)"/>
+                </Frame>
+
+                <Label x:Name="you_have_2_new_messa"
+						FontFamily="PoppinsBold"
+						FontSize="14"
+						TextColor="{DynamicResource TextBar}"
+						AbsoluteLayout.LayoutBounds="20,450,256,26"
+						Text="Califica al usuario de 1 a 5"/>
+
+                <Frame 
+                     CornerRadius="20" WidthRequest="350" BorderColor="{DynamicResource TextBar}" Margin="10,475">
+                    <controls:ImageEntry 
+                                            x:Name="Name"
+                                            TextColor="{DynamicResource TextBar}" 
+                                            PlaceholderColor="{DynamicResource TextBar}" 
+                                            FontSize="16"
+                                            Placeholder="Calificación" 
+                                            FontFamily="PoppinsLight"
+                                            Keyboard="Numeric"
+                                            Text="{Binding Note}"
+                                            HorizontalOptions="FillAndExpand"/>
+                </Frame>
+
+
+                <ImageButton x:Name="img_sendcomment"
+					    Source="img_sendcomment.png"
+                        Command="{Binding SendCommand}"
+                        BackgroundColor="{DynamicResource Transparent}"
+					    AbsoluteLayout.LayoutBounds="100,600,211,51" />
+
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

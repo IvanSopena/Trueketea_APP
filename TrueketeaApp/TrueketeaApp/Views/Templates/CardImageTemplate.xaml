@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:helper="clr-namespace:TrueketeaApp.AuthHelpers"
+             x:Class="TrueketeaApp.Views.Templates.CardImageTemplate">
+  <ViewCell.View>
+      <controls:CustomShadowFrame
+            Padding="0"
+            helper:RTLHelper.Margin="22, 12, 38, 4"
+            BackgroundColor="{DynamicResource LightGreen}"
+            BorderWidth="0"
+            CornerRadius="4"
+            HasShadow="True"
+            HorizontalOptions="Start">
+
+            <controls:CustomShadowFrame.Content>
+                <Grid Padding="2" VerticalOptions="FillAndExpand">
+
+                    <border:SfBorder BorderWidth="0" CornerRadius="5">
+                        <!--  Image  -->
+                        <Image
+                            BackgroundColor="{DynamicResource Gray-200}"
+                            HeightRequest="100"
+                            HorizontalOptions="Start"
+                            Source="{Binding ImagePath}"
+                            VerticalOptions="Fill"
+                            WidthRequest="100" />
+                    </border:SfBorder>
+
+                    <!--  Time  -->
+                    <Label
+                        Margin="5,0"
+                        FontFamily="Montserrat-Medium"
+                        FontSize="12"
+                        HorizontalOptions="End"
+                        Text="{Binding Time, StringFormat='{0:h:mm tt}'}"
+                        TextColor="{DynamicResource Gray-700}"
+                        VerticalOptions="End" />
+
+                </Grid>
+            </controls:CustomShadowFrame.Content>
+
+        </controls:CustomShadowFrame>
+  </ViewCell.View>
+</ViewCell>

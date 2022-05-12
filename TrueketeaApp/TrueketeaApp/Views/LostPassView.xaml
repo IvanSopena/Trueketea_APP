@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:TrueketeaApp.MyControls"
+             xmlns:styles="clr-namespace:TrueketeaApp.Styles"
+             x:Class="TrueketeaApp.Views.LostPassView">
+
+    <!--<ContentPage.Resources>
+        <styles:Colors  />
+    </ContentPage.Resources>-->
+
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+
+
+
+                <AbsoluteLayout x:Name="content"
+				             Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+
+                    <Image x:Name="__img_contentlostpass"
+					            Source="__img_contentlostpass.png"
+                               AbsoluteLayout.LayoutBounds="-12,102,398,213" />
+
+                    <ImageButton x:Name="__img_sendbutton"
+                                Command="{Binding SendCommand}"
+                                BackgroundColor="{DynamicResource Transparent}"
+					            Source="__img_sendbutton.png"
+					            AbsoluteLayout.LayoutBounds="84,232,206,106" />
+
+
+
+                    <!--<local:ImageEntry 
+                            x:Name="UserEmail" 
+                            TextColor="Black" 
+                            PlaceholderColor="Black" 
+                            Image="mail" 
+                            Placeholder="Email" 
+                            Keyboard="Email"
+                            AbsoluteLayout.LayoutBounds="35,160,315,60"
+                            HorizontalOptions="FillAndExpand"/>-->
+
+                    <StackLayout AbsoluteLayout.LayoutBounds="35,160,315,60" >
+
+                        <local:ImageEntry 
+                            x:Name="EMAIL"
+                            FontFamily="PoppinsLight"
+                            TextColor="Black" 
+                            PlaceholderColor="Black" 
+                            Image="mail" 
+                            Placeholder="Email" 
+                            Keyboard="Email"
+                            
+                            HorizontalOptions="FillAndExpand"
+                            />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Style="{StaticResource ErrorIconLabelStyle}"
+                                   IsVisible="{Binding IsVisbleMail}"
+                                   TextColor="{DynamicResource Red}"
+                                   Text="{DynamicResource Error}"/>
+                            <Label
+                                x:Name="ErrValidationMail"    
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Error}"
+                                IsVisible="{Binding IsVisbleMail}"
+                                TextColor="{DynamicResource Red}"/>
+
+                        </StackLayout>
+                        <!--<Label
+                                x:Name="ErrValidationMail"
+                                FontFamily="PoppinsLight"
+                                Margin="15,-3,0,0"
+                                 Text="{Binding Error}"
+                                IsVisible="{Binding IsVisbleMail}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />-->
+
+                    </StackLayout>
+
+
+                    <Label x:Name="recupera_tu_contrase_a"
+					            FontFamily="PoppinsBold"
+					            FontAttributes="Bold"
+					            FontSize="30"
+					            TextColor="#0bbf2f"
+					            AbsoluteLayout.LayoutBounds="15,-4,394,64"
+					            Text="Recupera tu Contraseña"/>
+
+                </AbsoluteLayout>
+
+                <AbsoluteLayout  Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="__img_pict"
+				            Source="__img_pict.png"
+				     />
+                </AbsoluteLayout>
+
+
+                <ActivityIndicator 
+                Color="{DynamicResource Trueketea}"
+                IsRunning="{Binding IsBusy}"
+                 HorizontalOptions="Center" 
+                VerticalOptions="Center"/>
+
+            </Grid>
+        </ScrollView>
+
+        
+
+    </ContentPage.Content>
+</ContentPage>
+    
+    

@@ -1,0 +1,189 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\FirebaseServices\**" />
+    <EmbeddedResource Remove="Services\FirebaseServices\**" />
+    <None Remove="Services\FirebaseServices\**" />
+    <None Remove="Syncfusion.Xamarin.SfListView" />
+    <None Remove="Views\Templates\" />
+    <None Remove="Syncfusion.Xamarin.SfBadgeView" />
+    <None Remove="Converters\" />
+    <None Remove="Syncfusion.Xamarin.Cards" />
+    <None Remove="Microsoft.AspNetCore.SignalR.Client" />
+    <None Remove="Xam.Plugins.Notifier" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Themes\DarkTheme.xaml.cs~RF46ffc56f.TMP" />
+    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Light.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Bold.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Light.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Medium.ttf" />
+    <None Remove="Resources\Fonts\Raleway-Regular.ttf" />
+    <None Remove="Resources\Fonts\UIFontIcons.ttf" />
+    <None Remove="Resources\Fonts\UIFontIcons.ttf" />
+    <None Remove="Resources\Fonts\Font Awesome Regular.otf" />
+    <None Remove="Resources\Fonts\Font Awesome Solid.otf" />
+    <None Remove="Plugin.FacebookClient" />
+    <None Remove="Services\FirebaseServices\" />
+    <None Remove="Syncfusion.Xamarin.SfAutoComplete" />
+    <None Remove="Syncfusion.Licensing" />
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="Sharpnado.Shadows" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="MailKit" Version="3.2.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.9.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.4.0.38" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Auth.XamarinForms" Version="1.7.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2401" />
+    <PackageReference Include="XamlCSS.XamarinForms" Version="2.2.0" />
+    <PackageReference Include="Syncfusion.Licensing" Version="19.4.0.38" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="19.4.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="19.4.0.38" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.3" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Poppins-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Raleway-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\UIFontIcons.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Font Awesome Regular.otf" />
+    <EmbeddedResource Include="Resources\Fonts\Font Awesome Solid.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Styles\AvatarViewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\BorderStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\BoxViewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\ComboBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\EntryStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\FontIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\GradientViewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\LabelStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddProductView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BienvenidaView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ChatView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CommentsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\customviews\PhotpView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\customviews\ToolBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DetailPageView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\IncidentReportView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\InformationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LostPassView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MenuView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MessagesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProfileFavView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RegisterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TermsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ValidarView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Templates\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Templates\CardTextTemplate.xaml.cs">
+      <DependentUpon>CardTextTemplate.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

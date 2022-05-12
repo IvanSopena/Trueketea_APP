@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TrueketeaApp.MyControls"
+             xmlns:styles="clr-namespace:TrueketeaApp.Styles"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.ValidarView">
+
+
+    <!--<ContentPage.Resources>
+        <styles:Colors  />
+    </ContentPage.Resources>-->
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <AbsoluteLayout x:Name="content"  Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+
+                    <Image x:Name="__img_contentenedor"
+					        Source="__img_contentenedor.png"
+					        AbsoluteLayout.LayoutBounds="-10,71,425,288" />
+                    <Label x:Name="title"
+					        FontFamily="PoppinsBold"
+					        FontAttributes="Bold"
+					        FontSize="33"
+					        TextColor="{DynamicResource Trueketea}"
+					        AbsoluteLayout.LayoutBounds="14,-4,393,90.5"
+					        Text="Código de Verificación"/>
+
+                    <local:PlainEntry x:Name="C1" 
+                                TextColor="#000000"
+                                PlaceholderColor="#000000"
+                                StyleClass="input"
+                                BackgroundColor="{DynamicResource Transparent}"
+								FontFamily="PoppinsLight"
+								FontSize="16"
+								AbsoluteLayout.LayoutBounds="60,223,41,41"
+                                Keyboard="Text" />
+                    <local:PlainEntry x:Name="C2" 
+                                TextColor="#000000"
+                                PlaceholderColor="#000000"
+                                StyleClass="input"
+                                BackgroundColor="{DynamicResource Transparent}"
+								FontFamily="PoppinsLight"
+								FontSize="16"
+								AbsoluteLayout.LayoutBounds="110,223,41,41"
+                                Keyboard="Text" />
+                    <local:PlainEntry x:Name="C3" 
+                                TextColor="#000000"
+                                PlaceholderColor="#000000"
+                                StyleClass="input"
+                                BackgroundColor="{DynamicResource Transparent}"
+								FontFamily="PoppinsLight"
+								FontSize="16"
+								AbsoluteLayout.LayoutBounds="160,223,41,41"
+                                Keyboard="Text" />
+                    <local:PlainEntry x:Name="C4" 
+                                TextColor="#000000"
+                                PlaceholderColor="#000000"
+                                StyleClass="input"
+                                BackgroundColor="{DynamicResource Transparent}"
+								FontFamily="PoppinsLight"
+								FontSize="16"
+								AbsoluteLayout.LayoutBounds="210,223,41,41"
+                                Keyboard="Text" />
+                    <local:PlainEntry x:Name="C5" 
+                                TextColor="#000000"
+                                PlaceholderColor="#000000"
+                                StyleClass="input"
+                                BackgroundColor="{DynamicResource Transparent}"
+								FontFamily="PoppinsLight"
+								FontSize="16"
+								AbsoluteLayout.LayoutBounds="260,223,41,41"
+                                Keyboard="Text" />
+                    <local:PlainEntry x:Name="C6" 
+                                TextColor="#000000"
+                                PlaceholderColor="#000000"
+                                StyleClass="input"
+                                BackgroundColor="{DynamicResource Transparent}"
+								FontFamily="PoppinsLight"
+								FontSize="16"
+								AbsoluteLayout.LayoutBounds="310,223,41,41"
+                                Keyboard="Text" />
+
+
+                    <Label x:Name="text"
+					FontFamily="PoppinsMedium"
+					FontSize="14"
+					TextColor="#929292"
+					AbsoluteLayout.LayoutBounds="40,116,324,57"
+					Text="Introduce el cdigo de 6 dígitos que ha sido enviado a tu cuenta de email."
+				 />
+
+                    <AbsoluteLayout x:Name="s_img_verifica"
+					 AbsoluteLayout.LayoutBounds="160,302,146,46">
+                        
+                        <Button Text="Validar"
+                            BorderColor="{DynamicResource Trueketea}"
+                            BackgroundColor="{DynamicResource Trueketea}"
+                            FontFamily="PoppinsLight"
+							FontSize="20"
+                            TextColor="{DynamicResource TextColor}"
+                            CornerRadius="30"
+                            Command="{Binding ValidateCommand}"
+                            BorderWidth="2"/>
+                        <!--<Image x:Name="__img_regbutton"
+							Source="__img_regbutton.png"
+						AbsoluteLayout.LayoutBounds="-30,-30,206,106" />
+
+                        <Label x:Name="verificar"
+						FontFamily="Poppins"
+						FontSize="20"
+						TextColor="{DynamicResource TextColor}"
+						AbsoluteLayout.LayoutBounds="36,5,99,42"
+						Text="Verificar"
+					 />-->
+                    </AbsoluteLayout>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout  Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="__img_pict"
+				    Source="__img_picture.png"
+				     />
+                </AbsoluteLayout>
+
+                <ActivityIndicator 
+                Color="{DynamicResource Trueketea}"
+                IsRunning="{Binding IsBusy}"
+                 HorizontalOptions="Center" 
+                VerticalOptions="Center"/>
+
+            </Grid>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
+    

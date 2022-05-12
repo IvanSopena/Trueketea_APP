@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolbar="clr-namespace:TrueketeaApp.Views.customviews"
+			 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+              ios:Page.UseSafeArea="true"
+              NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.IncidentReportView">
+    <ContentPage.Content>
+        <StackLayout>
+            <toolbar:ToolBar BackButtonIsVisible="true"
+                             ToolBarTextSize="18"
+                             ShareButtonIsVisible="false"
+                             OptionsButtonIsVisible="false"
+                             ButtonTextSize="18"
+                             ToolBarTitle="Reporte de Incidencias"/>
+
+            <AbsoluteLayout x:Name="grupo_272"
+				 AbsoluteLayout.LayoutBounds="25,121,203,19">
+
+                <Label x:Name="application"
+					FontFamily="RalewayBold"
+					FontSize="16"
+					TextColor="#484d54"
+					AbsoluteLayout.LayoutBounds="5,0,216,30"
+					Text="¿En que podemos mejorar?"/>
+            </AbsoluteLayout>
+
+
+            <Frame 
+                CornerRadius="20" Padding="0,20">
+                
+                <Editor x:Name="ReportText"
+                Keyboard="Text"
+                HeightRequest="500"
+                MaxLength="150"
+                Placeholder="Escribre aqui la incidencia (max. 150 carac.)"/>
+
+            </Frame>
+
+            <AbsoluteLayout>
+                <ImageButton x:Name="__img_send"
+                    BackgroundColor="{DynamicResource Transparent}"
+                    Command="{Binding SendCommand}"
+					Source="img_send.png"
+					AbsoluteLayout.LayoutBounds="110,30,211,51" />
+            </AbsoluteLayout>
+            
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

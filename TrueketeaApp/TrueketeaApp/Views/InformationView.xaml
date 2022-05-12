@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolbar="clr-namespace:TrueketeaApp.Views.customviews"
+			 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+              ios:Page.UseSafeArea="true"
+             xmlns:controls="clr-namespace:TrueketeaApp.MyControls" 
+             x:Name="Info"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="TrueketeaApp.Views.InformationView">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <toolbar:ToolBar BackButtonIsVisible="true"
+                             ToolBarTextSize="15"
+                             ShareButtonIsVisible="false"
+                             OptionsButtonIsVisible="false"
+                             ButtonTextSize="15"
+                             ToolBarTitle="Información de Trueketea"/>
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, *" RowSpacing="0">
+
+
+                <controls:TapAnimationGrid
+                                            Grid.Row="1"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                           Command="{Binding BindingContext.TermsCommand, Source={x:Reference Info}}"
+                                            HeightRequest="48">
+
+
+                    <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Terminos y Condiciones"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                    <buttons:SfButton
+                                           Command="{Binding BindingContext.TermsCommand, Source={x:Reference Info}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                </controls:TapAnimationGrid>
+
+                <BoxView Grid.Row="2" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <controls:TapAnimationGrid
+                                            Grid.Row="3"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                          Command="{Binding BindingContext.PrivacyCommand, Source={x:Reference Info}}"
+                                            HeightRequest="48">
+
+
+                    <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Privacidad"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                    <buttons:SfButton
+                                           Command="{Binding BindingContext.PrivacyCommand, Source={x:Reference Info}}"
+                                            FontSize="16"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconButtonStyle}"
+                                            Text="{StaticResource Next}" />
+
+                </controls:TapAnimationGrid>
+
+                <BoxView Grid.Row="4" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <controls:TapAnimationGrid
+                                            Grid.Row="5"
+                                            Padding="16,0,4,0"
+                                            BackgroundColor="{DynamicResource Gray-Bg}"
+                                            HeightRequest="48">
+
+
+                    <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="Start"
+                                            Padding="25,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="Versión del Producto"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+
+
+                    <Label
+                                            FontFamily="RalewayMedium"
+                                            HorizontalOptions="End"
+                                            Padding="10,0"
+                                            Style="{StaticResource TitleLabelStyle}"
+                                            Text="1.0.0"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="End" />
+
+                </controls:TapAnimationGrid>
+
+                <BoxView Grid.Row="7" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
