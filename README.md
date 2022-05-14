@@ -1,2 +1,4 @@
 # Trueketea_APP
-Proyecto TFG con Xamarin Forms
+Repositorio para la aplicación movil que se va a presentar como TFG. 📝
+
+
