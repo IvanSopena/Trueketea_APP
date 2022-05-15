@@ -181,16 +181,16 @@ namespace TrueketeaApp.Service
             }
             else
             {
-                product.Add(new Item
-                {
-                    description = "No hay Resultados para mostrar.",
-                    complement = "",
-                    image = "not_found.png",
-                    category = "categoria",
-                    price = 0,
-                    rating = 0,
-                    favorite = false
-                });
+                //product.Add(new Item
+                //{
+                //    description = "",
+                //    complement = "",
+                //    image = "not_found.png",
+                //    category = "categoria",
+                //    price = 0,
+                //    rating = 0,
+                //    favorite = false
+                //});
             }
             return product;
         }
@@ -202,18 +202,46 @@ namespace TrueketeaApp.Service
 
             if (allItems != null & allItems.Count > 0)
             {
+
                 foreach (var item in allItems)
                 {
-                    
-                        product.Add(new Item
+
+                    if (item.User_id.ToString() != AppConstant.Constants.UserLoginId)
                     {
-                        description = item.NombreProducto,
-                        complement = item.ShortDesc,
-                        image = item.Foto1,
-                        price = item.Precio,
-                        rating = item.Likes,
-                        favorite = true
-                    });
+                        if (item.Estado != "Bloqueado")
+                        {
+                            if (SearchFav(item.Id.ToString()))
+                            {
+                                favorite_color = Color.Red;
+                            }
+                            else
+                            {
+                                favorite_color = Color.Wheat;
+                            }
+                            product.Add(new Item
+                            {
+                                Id = item.Id,
+                                description = item.NombreProducto,
+                                complement = item.ShortDesc,
+                                image = ImageSource.FromUri(new Uri(item.Foto1)),
+                                price = item.Precio,
+                                rating = item.Likes,
+                                backgroundColor = favorite_color,
+                                favorite = true
+                            });
+
+                            //product.Add(new Item
+                            //{
+                            //    description = item.NombreProducto,
+                            //    complement = item.ShortDesc,
+                            //    image = item.Foto1,
+                            //    price = item.Precio,
+                            //    rating = item.Likes,
+                            //    favorite = true
+                            //});
+                        }
+                    }
+
                 }
 
             }
