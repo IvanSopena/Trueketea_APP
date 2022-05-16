@@ -432,11 +432,11 @@ namespace TrueketeaApp.ViewModels
             else
             {
                 AppConstant.Constants.UserLoginId = B8.DBLookupEx(_dbContext.TableOwner + ".Login_Users", "User_Id", "User_Email", user.Email);
-                AppConstant.Constants.UserLoginEmail = reg.UserEmail;
-                AppConstant.Constants.UserName = B8.DBLookupEx(_dbContext.TableOwner + ".view_users", "Name", "Email", reg.UserEmail);
+                AppConstant.Constants.UserLoginEmail = user.Email;
+                AppConstant.Constants.UserName = B8.DBLookupEx(_dbContext.TableOwner + ".view_users", "Name", "Email", user.Email);
                 AppConstant.Constants.UserDirection = B8.DBLookupEx(_dbContext.TableOwner + ".view_users", "Direction", "Email", user.Email);
                 AppConstant.Constants.UserProfilePhoto = B8.DBLookupEx(_dbContext.TableOwner + ".view_users", "PhotoPath", "Email", user.Email);
-                B8.UpdateExpress("Login_Users", "User_Email", reg.UserEmail, "Connected", "1");
+                B8.UpdateExpress("Login_Users", "User_Email", user.Email, "Connected", "1");
                 ChageCommonsVariables();
                 await NavigationService.NavigateToAsync<HomeViewModel>();
             }

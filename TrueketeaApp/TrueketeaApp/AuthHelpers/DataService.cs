@@ -162,8 +162,9 @@ namespace TrueketeaApp.Service
                 foreach (var item in allItems)
                 {
                     string productName = item.NombreProducto;//
+                    
 
-                        product.Add(new Item
+                    product.Add(new Item
                         {
                             Id = item.Id,
                             description = $"{productName.Substring(0, 10)} ...",
