@@ -8,8 +8,7 @@ Tueketea es una aplicación multiplataforma desarrollada en Xamarin y que es el 
 
 [![](https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white)]()
 [![](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)]()
-[![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)]
-()
+[![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)]()
 [![](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)]
 ()
 [![](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)]
@@ -18,7 +17,10 @@ Tueketea es una aplicación multiplataforma desarrollada en Xamarin y que es el 
 ()
 [![](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)]
 ()
-![](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+[![](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)]
+()
+</br>
+
 
 ### Resultados Obtenidos
 
