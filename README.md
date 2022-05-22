@@ -26,3 +26,4 @@ Aqui se muestran los resultados finales de la aplicación mendiante una secuenci
 
 [![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/splash.png)]
 ()
+[![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/splash.png)]
