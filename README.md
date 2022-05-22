@@ -1,4 +1,8 @@
-# Trueketea_APP
-Repositorio para la aplicación movil que se va a presentar como TFG. 📝
+# ♻️ Trueketea 
+
+Tueketea es una aplicación multiplataforma desarrollada en Xamarin y que es el resultado del TFG de Ingenieria Informatica.
+
+
+
 
 
