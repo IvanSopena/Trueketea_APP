@@ -20,8 +20,8 @@ Tueketea es una aplicación multiplataforma desarrollada en Xamarin y que es el 
 
 ### Resultados Obtenidos
 
-Aqui se muestran los resultados finales de la aplicación mendiante una secuencia de imagenes de las distintas vistas.
-</br>
+Aqui se muestran los resultados finales de la aplicación mendiante una secuencia de imagenes de las distintas vistas.</br>
+
 Splash Screen</br>
 [![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/splash.png)]()
 [![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/view_01.png)]()</br>
