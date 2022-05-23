@@ -139,7 +139,7 @@
                     Command="{Binding ForgotPasswordCommand}"
 					FontSize="14"
                     BackgroundColor="{DynamicResource Transparent}"
-					TextColor="#bcbcbc"
+					TextColor="{DynamicResource colorBlack20}"
 					AbsoluteLayout.LayoutBounds="90,235,280,60"
 					Text="¿Olvidaste tu Contraseña?" />
 

@@ -463,7 +463,14 @@
   <ItemGroup>
     <BundleResource Include="Resources\Wall2.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Notifications\" />
+    <BundleResource Include="Resources\mod_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Reg_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Verify_Button.png" />
   </ItemGroup>
 </Project>

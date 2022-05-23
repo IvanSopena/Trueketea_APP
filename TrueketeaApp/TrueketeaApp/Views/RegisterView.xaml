@@ -135,7 +135,7 @@
 					                    Text="Acepto las condiciones de uso." />
                     </StackLayout>
 
-                    <Button Text="Registrar"
+                    <!--<Button Text="Registrar"
                             BorderColor="{DynamicResource Trueketea}"
                             BackgroundColor="{DynamicResource Trueketea}"
                             FontFamily="PoppinsLight"
@@ -144,8 +144,13 @@
                             CornerRadius="30"
                             Command="{Binding RegisterCommand}"
                             AbsoluteLayout.LayoutBounds="90,385,229,50"
-                            BorderWidth="2"/>
-
+                            BorderWidth="2"/>-->
+                    <ImageButton 
+					            Source="Reg_button.png"
+                                Command="{Binding RegisterCommand}"
+                                BackgroundColor="{DynamicResource Transparent}"
+                                AbsoluteLayout.LayoutBounds="98,335,229,150"
+					             />
 
                     <!--<Label x:Name="or"
 							FontFamily="Poppins"

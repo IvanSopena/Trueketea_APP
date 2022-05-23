@@ -23,9 +23,9 @@ namespace TrueketeaApp
             SyncfusionLicenseProvider.RegisterLicense("NTc1NDg2QDMxMzkyZTM0MmUzMGJ4Q2VKOFFSam9IMGtzbDFEU3QrYmNCVnJMckptYjcwL05vWDF4VmdNYWc9");
 
             InitializeComponent();
-            MainPage = new NavigationPage(new BienvenidaView());
+            MainPage = new NavigationPage(new BienvenidaView()); //
 
-            
+
 
 
         }

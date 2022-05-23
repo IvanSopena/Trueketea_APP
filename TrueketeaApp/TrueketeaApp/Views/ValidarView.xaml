@@ -106,7 +106,7 @@
                     <AbsoluteLayout x:Name="s_img_verifica"
 					 AbsoluteLayout.LayoutBounds="160,302,146,46">
                         
-                        <Button Text="Validar"
+                        <!--<Button Text="Validar"
                             BorderColor="{DynamicResource Trueketea}"
                             BackgroundColor="{DynamicResource Trueketea}"
                             FontFamily="PoppinsLight"
@@ -114,12 +114,14 @@
                             TextColor="{DynamicResource TextColor}"
                             CornerRadius="30"
                             Command="{Binding ValidateCommand}"
-                            BorderWidth="2"/>
-                        <!--<Image x:Name="__img_regbutton"
-							Source="__img_regbutton.png"
-						AbsoluteLayout.LayoutBounds="-30,-30,206,106" />
+                            BorderWidth="2"/>-->
+                        <ImageButton 
+					            Source="Verify_Button.png"
+                                Command="{Binding ValidateCommand}"
+                               BackgroundColor="{DynamicResource Transparent}"
+					            AbsoluteLayout.LayoutBounds="-70,-15,229,108" />
 
-                        <Label x:Name="verificar"
+                        <!-- <Label x:Name="verificar"
 						FontFamily="Poppins"
 						FontSize="20"
 						TextColor="{DynamicResource TextColor}"
