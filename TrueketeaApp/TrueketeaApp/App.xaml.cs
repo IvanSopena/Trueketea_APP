@@ -25,9 +25,6 @@ namespace TrueketeaApp
             InitializeComponent();
             MainPage = new NavigationPage(new BienvenidaView()); //
 
-
-
-
         }
 
         protected override void OnStart()
