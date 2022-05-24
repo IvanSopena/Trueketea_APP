@@ -46,4 +46,4 @@ Aqui se muestran los resultados finales de la aplicación mendiante una secuenci
 [![](https://img.shields.io/badge/Android-11-green?longCache=true&style=popout-square)]()
 [![](https://img.shields.io/badge/iOS-11-FA7343?longCache=true&style=popout-square)]()
 
-* La conexión de la aplicación con la base de datos se realiza de forma local. Para realizar la conexion con la base de datos hay que resturar la copia de seguridad de la base de datos y agregar en el modulo App.C# la ip del servidor.
+* La conexión de la aplicación con la base de datos se realiza de forma local. Para hacer que funcione la base de datos hay que resturar la copia de seguridad y agregar en el modulo App.cs la ip del servidor.
