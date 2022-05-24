@@ -1,10 +1,10 @@
-# ♻️ 📱 Trueketea 
+# ♻️ Trueketea: Aplicación Móvil 📱
 
 Tueketea es una aplicación multiplataforma desarrollada en Xamarin y que es el resultado del TFG de Ingeniería Informática.
 
 ![SPLASH](https://github.com/IvanSopena/Trueketea_APP/blob/main/TrueketeaApp/TrueketeaApp.Android/Resources/drawable/Trueketea.png)
 
-### Tecnologias empleadas
+### Tecnologías empleadas
 
 [![](https://img.shields.io/badge/Xamarin-3498DB?style=for-the-badge&logo=xamarin&logoColor=white)]()
 [![](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)]()
