@@ -37,3 +37,5 @@ Aqui se muestran los resultados finales de la aplicación mendiante una secuenci
 [![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/chat_list_view.png)]()
 [![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/message_view.png)]()
 [![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/more_view.png)]()
+[![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/trueques_view.png)]()
+[![](https://github.com/IvanSopena/Trueketea_APP/blob/main/Screenshoot/myprofile_view.png)]()
