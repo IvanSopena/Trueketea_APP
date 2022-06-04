@@ -221,7 +221,15 @@ namespace TrueketeaApp.ViewModels
                     prd.EstadoActual = SelectStatus.StatusName;
                     prd.IdProducto = "0";
                     prd.Likes = 0;
-                    prd.NombreProducto = ProductName;//myView.FindByName<Entry>("Title").Text;
+
+                    if (string.IsNullOrEmpty(ProductName))
+                    {
+                        await wg.ToastWarning("Es necesario que proporcione el nombre del producto.", myView);
+                    }
+                    else
+                    {
+                        prd.NombreProducto = ProductName;//myView.FindByName<Entry>("Title").Text;
+                    }
 
                     if(price == "0")
                     {

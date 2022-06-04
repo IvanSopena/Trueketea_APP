@@ -22,6 +22,7 @@
     <None Remove="Syncfusion.Xamarin.Cards" />
     <None Remove="Microsoft.AspNetCore.SignalR.Client" />
     <None Remove="Xam.Plugins.Notifier" />
+    <None Remove="Microsoft.ML.Recommender" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,6 +77,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Cards" Version="19.4.0.38" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.3" />
     <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+    <PackageReference Include="Microsoft.ML.Recommender" Version="0.19.1" />
   </ItemGroup>
 
   <ItemGroup>
