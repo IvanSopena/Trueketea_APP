@@ -228,7 +228,7 @@ namespace TrueketeaApp.ViewModels
                     }
                     else
                     {
-                        prd.NombreProducto = ProductName;//myView.FindByName<Entry>("Title").Text;
+                        prd.NombreProducto = ProductName;
                     }
 
                     if(price == "0")
