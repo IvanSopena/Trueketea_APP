@@ -466,7 +466,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\Wall2.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\mi_logo.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\mod_button.png" />
   </ItemGroup>
@@ -475,5 +477,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Verify_Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mi_logo_trp.png" />
   </ItemGroup>
 </Project>

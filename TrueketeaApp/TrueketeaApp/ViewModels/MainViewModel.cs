@@ -156,7 +156,6 @@ namespace TrueketeaApp.ViewModels
 
         public void GetItems()
         {
-
             Items = new ObservableCollection<Item>(DataService.GetItems());
             FilteredItems = Items;
         }
