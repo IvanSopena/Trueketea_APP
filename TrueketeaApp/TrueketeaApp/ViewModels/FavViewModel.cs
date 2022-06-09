@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TrueketeaApp.Models;
 using TrueketeaApp.PageModels.Base;
 using TrueketeaApp.Service;
+using TrueketeaApp.Services;
 using TrueketeaApp.Services.Messages;
 using TrueketeaApp.Views;
 using Xamarin.Forms;
@@ -30,7 +31,7 @@ namespace TrueketeaApp.ViewModels
             }
         }
 
-       
+        private B8Clases B8 = new B8Clases();
         public Command SelectGroupCommand { get; }
         public Command Nav { get; }
         public Command DeleteFavCommand { get; }
@@ -84,6 +85,11 @@ namespace TrueketeaApp.ViewModels
         private async void ExecuteSelectGroupCommand(Item model)
         {
             AppConstant.Constants.ProductId = model.Id;
+
+            string views = B8.DBLookupEx("ShowProducts", "ViewsCount + 1", "Product_Id", model.Id.ToString());
+
+            B8.UpdateExpress("ShowProducts", "Product_Id", model.Id.ToString(), "ViewsCount", views);
+
             var navigationPage = Application.Current.MainPage as NavigationPage;
             await navigationPage.PushAsync(new DetailPageView());
         }

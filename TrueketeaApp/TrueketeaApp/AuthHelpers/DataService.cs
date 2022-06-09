@@ -92,7 +92,7 @@ namespace TrueketeaApp.Service
             return false;
         }
 
-      
+       
 
         public  static ObservableCollection<Item> GetItems() 
         {
@@ -102,7 +102,7 @@ namespace TrueketeaApp.Service
             
             if (allItems != null)
             {
-                foreach (var item in allItems)
+                foreach (var item in B8.OrderItems(allItems))
                 {
                     if(item.User_id.ToString() != AppConstant.Constants.UserLoginId)
                     {

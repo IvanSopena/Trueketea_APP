@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 using System.Text;
 using TrueketeaApp.Models;
 using TrueketeaApp.Services.DataBase;
 using TrueketeaApp.Services.Messages;
 using TrueketeaApp.ViewModels;
+using Xamarin.Forms;
 
 namespace TrueketeaApp.Services
 {
@@ -421,6 +424,61 @@ namespace TrueketeaApp.Services
 
             return resultString;
         }
+
+
+        public ObservableCollection<ProductModel> OrderItems (List<ProductModel> productos) //,DataTable prodOrdenados
+        {
+            DataTable prodOrdenados = new DataTable();
+            string sql = $"SELECT product_id,ViewsCount  from {ViewModelLocator.sql.TableOwner}.ShowProducts order by ViewsCount desc";
+            ViewModelLocator.sql.DbSelect(sql, ref prodOrdenados);
+
+            ObservableCollection<ProductModel> itemsOrganized = new ObservableCollection<ProductModel>();
+            
+
+            if (productos.Count == prodOrdenados.Rows.Count)
+            {
+                string[] arrray = prodOrdenados.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
+                    for(int b=0; b<= prodOrdenados.Rows.Count-1; b++ )
+                    {
+                        foreach (var item in productos)
+                        {
+                            if (item.Id.ToString().Equals(arrray[b]))
+                            {
+                            itemsOrganized.Add(new ProductModel
+                            {
+                                Id = item.Id,
+                                Categoria = item.Categoria,
+                                Descripcion = item.Descripcion,
+                                Direccion = item.Direccion,
+                                Estado = item.Estado,
+                                Foto1 = item.Foto1,
+                                Foto2 = item.Foto2,
+                                Foto3 = item.Foto3,
+                                Foto4 = item.Foto4,
+                                IdProducto = item.IdProducto,
+                                Likes = item.Likes,
+                                NombreProducto = item.NombreProducto,
+                                Precio = item.Precio,
+                                User_id = item.User_id,
+                                User_Name = item.User_Name,
+                                ShortDesc = item.ShortDesc,
+                                Longitud = item.Longitud,
+                                Latitud = item.Latitud,
+                                USerPic = item.USerPic,
+                                EstadoActual = item.EstadoActual,
+                                Fav_User_Id = item.Fav_User_Id,
+
+                            }) ;
+                            }
+                        }
+                    }
+
+            }
+
+            return itemsOrganized;
+        }
+
 
 
     }

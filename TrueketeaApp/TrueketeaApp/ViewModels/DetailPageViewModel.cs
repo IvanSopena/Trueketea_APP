@@ -203,10 +203,6 @@ namespace TrueketeaApp.ViewModels
                 EstadoActual = item.EstadoActual;
                 id_user = item.User_id.ToString();
 
-                string views = B8.DBLookupEx("ShowProducts", "ViewsCount + 1", "Product_Id", item.Id.ToString());
-
-                B8.UpdateExpress("ShowProducts", "Product_Id", item.Id.ToString(), "ViewsCount", views);
-
             }
 
             Votos = B8.DBLookupEx("Users","ISNULL(Vote,'0')","User_id",id_user);

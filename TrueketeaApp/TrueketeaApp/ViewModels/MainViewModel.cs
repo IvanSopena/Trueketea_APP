@@ -12,11 +12,13 @@ using System.Collections.Generic;
 using System;
 using TrueketeaApp.Services.Messages;
 using Plugin.LocalNotifications;
+using TrueketeaApp.Services;
 
 namespace TrueketeaApp.ViewModels
 {
     public class MainViewModel : ViewModelBase 
     {
+        private B8Clases B8 = new B8Clases();
         private NotiffyModel updNoty = new NotiffyModel();
         private string catname = "Todos";
         public Command NavigateToDetailPageCommand { get; }
@@ -148,7 +150,7 @@ namespace TrueketeaApp.ViewModels
            
             await NavigationService.NavigateToAsync<AddProductViewModel>();
             
-        }
+        } 
         void GetGroups()
         {
             Groups = new ObservableCollection<Group>(DataService.GetGroups());
@@ -162,7 +164,8 @@ namespace TrueketeaApp.ViewModels
 
         private async Task ExecuteNavigateToDetailPageCommand(Item model)
         {
-          
+            string views = B8.DBLookupEx("ShowProducts", "ViewsCount + 1", "Product_Id", model.Id.ToString());
+            B8.UpdateExpress("ShowProducts", "Product_Id", model.Id.ToString(), "ViewsCount", views);
             AppConstant.Constants.ProductId = model.Id;
             await NavigationService.NavigateToAsync<DetailPageViewModel>();
         }
