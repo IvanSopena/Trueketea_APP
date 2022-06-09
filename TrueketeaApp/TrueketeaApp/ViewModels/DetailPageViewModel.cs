@@ -187,8 +187,6 @@ namespace TrueketeaApp.ViewModels
         public void CargaDatos()
         {
 
-            
-
             foreach (var item in producto)
             {
                 Longitud = item.Longitud;
@@ -204,6 +202,10 @@ namespace TrueketeaApp.ViewModels
                 Estado = item.Estado;
                 EstadoActual = item.EstadoActual;
                 id_user = item.User_id.ToString();
+
+                string views = B8.DBLookupEx("ShowProducts", "ViewsCount + 1", "Product_Id", item.Id.ToString());
+
+                B8.UpdateExpress("ShowProducts", "Product_Id", item.Id.ToString(), "ViewsCount", views);
 
             }
 

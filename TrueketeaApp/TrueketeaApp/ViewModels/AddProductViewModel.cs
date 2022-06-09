@@ -279,9 +279,16 @@ namespace TrueketeaApp.ViewModels
 
                     if (ViewModelLocator.mongo.InsertProduct(prd, "Products") == true)
                     {
+                        int rows = 0;
 
                         B8.AddHistory(prd.Id.ToString(), prd.NombreProducto, prd.User_id.ToString(), "1", SelectCat.id);
                         await wg.ToastSuccess("Producto Añadido con exito", myView);
+
+                        string sql = $"Insert into ShowProducts (Product_id,ViewsSount) values ('{prd.Id}','0')";
+
+                        ViewModelLocator.sql.DbExecute(sql, ref rows);
+                        
+
                     }
                     else
                     {
