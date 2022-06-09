@@ -197,12 +197,8 @@ namespace TrueketeaApp.ViewModels
             {
                 var location = await Geolocation.GetLocationAsync(new GeolocationRequest(GeolocationAccuracy.Default, TimeSpan.FromMinutes(1)));
 
-                if (validation.Product_Validation(SelectCat.description, myView.FindByName<Entry>("Title").Text, myView.FindByName<Entry>("Desc").Text, SelectStatus.StatusName) == false)
-                {
-                    await wg.ToastWarning("Funcionalidad en Desarrollo", myView);
-                }
-                else
-                {
+                //if (validation.Product_Validation(SelectCat.description, myView.FindByName<Entry>("Title").Text, myView.FindByName<Entry>("Desc").Text, SelectStatus.StatusName) == false)
+               ////////// {
                     if (location == null)
                     {
                         prd.Latitud = 0;
@@ -284,7 +280,7 @@ namespace TrueketeaApp.ViewModels
                         B8.AddHistory(prd.Id.ToString(), prd.NombreProducto, prd.User_id.ToString(), "1", SelectCat.id);
                         await wg.ToastSuccess("Producto Añadido con exito", myView);
 
-                        string sql = $"Insert into ShowProducts (Product_id,ViewsSount) values ('{prd.Id}','0')";
+                        string sql = $"Insert into {ViewModelLocator.sql.TableOwner}.ShowProducts (Product_id,ViewsCount) values ('{prd.Id}','0')";
 
                         ViewModelLocator.sql.DbExecute(sql, ref rows);
                         
@@ -294,7 +290,9 @@ namespace TrueketeaApp.ViewModels
                     {
                         await wg.ToastWarning("El producto no ha podido ser añadido.", myView);
                     }
-                }
+                // }
+
+                
 
             }
             catch(Exception ex)
