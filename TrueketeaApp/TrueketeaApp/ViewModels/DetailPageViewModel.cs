@@ -51,6 +51,12 @@ namespace TrueketeaApp.ViewModels
         public string EstadoActual { get; set; }
         private string User_Email { get; set; }
 
+        bool buttonEnabled;
+        public bool Button_Enabled
+        {
+            get => buttonEnabled;
+            set => SetProperty(ref buttonEnabled, value);
+        }
 
         string _votos;
 
@@ -216,6 +222,16 @@ namespace TrueketeaApp.ViewModels
 
             map.Pins.Add(pin_product);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(pin_product.Position, Distance.FromMeters(500)));
+
+
+            if (id_user.Equals(AppConstant.Constants.UserLoginId))
+            {
+                Button_Enabled = false;
+            }
+            else
+            {
+                Button_Enabled = true;
+            }
 
         }
 

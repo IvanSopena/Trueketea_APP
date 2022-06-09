@@ -351,12 +351,11 @@
                     </AbsoluteLayout>
 
                     <ImageButton
+                            IsVisible="{Binding Button_Enabled}"
                             BackgroundColor="{DynamicResource Transparent}"
 				            Source="detailbutton.png"
                             Command="{Binding Chat_command}"
 				            AbsoluteLayout.LayoutBounds="26,1090,360,52" />
-
-
 
                 </AbsoluteLayout>
             </ScrollView>

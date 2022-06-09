@@ -66,7 +66,7 @@ namespace TrueketeaApp.ViewModels
 
             ////************************hay que borrar esto******************
 
-            this.TempCommand = new Command(this.TempFunction);
+            //this.TempCommand = new Command(this.TempFunction);
 
             //***************************************************************
 
@@ -91,26 +91,26 @@ namespace TrueketeaApp.ViewModels
 
         ////************************hay que borrar esto******************
 
-        async private void TempFunction(object obj)
-        {
-            IsBusy = true;
-            AppConstant.Constants.UserLoginEmail = "Alfredo@gmail.com";
-            AppConstant.Constants.UserLoginId = "3";
-            AppConstant.Constants.UserDirection = "";
-            AppConstant.Constants.UserName = B8.DBLookupEx(_dbContext.TableOwner + ".view_users", "Name", "Email", AppConstant.Constants.UserLoginEmail);
-            AppConstant.Constants.UserProfilePhoto = "https://firebasestorage.googleapis.com/v0/b/trueketea-bd250.appspot.com/o/System%2Fno_photo.jpeg?alt=media&token=6a5466f5-7d02-4375-b4bf-c7472557daeb";
-            B8.UpdateExpress("Login_Users", "User_Email", AppConstant.Constants.UserLoginEmail, "Connected", "1");
+        //async private void TempFunction(object obj)
+        //{
+        //    IsBusy = true;
+        //    AppConstant.Constants.UserLoginEmail = "Alfredo@gmail.com";
+        //    AppConstant.Constants.UserLoginId = "3";
+        //    AppConstant.Constants.UserDirection = "";
+        //    AppConstant.Constants.UserName = B8.DBLookupEx(_dbContext.TableOwner + ".view_users", "Name", "Email", AppConstant.Constants.UserLoginEmail);
+        //    AppConstant.Constants.UserProfilePhoto = "https://firebasestorage.googleapis.com/v0/b/trueketea-bd250.appspot.com/o/System%2Fno_photo.jpeg?alt=media&token=6a5466f5-7d02-4375-b4bf-c7472557daeb";
+        //    B8.UpdateExpress("Login_Users", "User_Email", AppConstant.Constants.UserLoginEmail, "Connected", "1");
 
-            ChageCommonsVariables();
-
-
-            //var navigationPage = Application.Current.MainPage as NavigationPage;
-            //await navigationPage.PushAsync(new HomeView());
-            await NavigationService.NavigateToAsync<HomeViewModel>();
+        //    ChageCommonsVariables();
 
 
-            IsBusy = false;
-        }
+        //    //var navigationPage = Application.Current.MainPage as NavigationPage;
+        //    //await navigationPage.PushAsync(new HomeView());
+        //    await NavigationService.NavigateToAsync<HomeViewModel>();
+
+
+        //    IsBusy = false;
+        //}
 
         //***************************************************************
 

@@ -136,6 +136,9 @@ namespace TrueketeaApp.PageModels.Base
             set => SetProperty(ref _isLoading, value);
         }
 
+
+      
+
         bool  _isVisbleMail;
 
         public bool IsVisbleMail
