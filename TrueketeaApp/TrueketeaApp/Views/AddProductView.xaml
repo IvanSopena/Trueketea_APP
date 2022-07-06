@@ -171,7 +171,9 @@
                                         FontFamily="PoppinsLight"
                                         ItemsSource="{Binding Status}" 
                                         SelectedItem="{Binding SelectStatus, Mode=TwoWay}" 
-                                        ItemDisplayBinding="{Binding StatusName}"/>-->
+                                        ItemDisplayBinding="{Binding StatusName}"/>
+
+                                    <Label Text="{DynamicResource Camera}" FontFamily="UI" />-->
                                     <combobox:SfComboBox x:Name="cmbStatus" 
                                                          BorderColor="{DynamicResource Trueketea}"
                                                          TextColor="{DynamicResource TextBar}" 
@@ -186,7 +188,7 @@
                                         <combobox:SfComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <StackLayout Orientation="Horizontal">
-                                                    <Label Text="{DynamicResource Camera}" FontFamily="UI" />
+                                                    <Label Text="{Binding StatusId}" />
                                                     <Label Text="{Binding StatusName}" />
                                                 </StackLayout>
                                             </DataTemplate>

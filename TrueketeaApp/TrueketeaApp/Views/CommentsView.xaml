@@ -101,7 +101,7 @@
                             WidthRequest="{OnPlatform Android='340',iOS='340'}"
                             MaxLength="150"
                             HorizontalOptions="FillAndExpand"
-                            Placeholder="Escribre aqui la incidencia (max. 150 carac.)"/>
+                            Placeholder="Escribre aqui el comentario (max. 150 carac.)"/>
                 </Frame>
 
                 <Label x:Name="you_have_2_new_messa"
